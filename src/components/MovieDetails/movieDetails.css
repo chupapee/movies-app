@@ -6,7 +6,7 @@
   align-items: center;
 
   width: 30%;
-  height: 500px;
+  height: 400px;
   background-color:cadetblue;
   overflow: hidden;
 
@@ -20,10 +20,50 @@
   position: relative;
 }
 
+.moviePosterWrapper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.movieOverlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.233);
+}
+
+.moviePosterWrapper:hover {
+  cursor: pointer;
+}
+
+.moviePosterWrapper:hover .moviePoster {
+  width: 150%;
+  height: 450px;
+}
+
+.moviePosterWrapper:hover .movieOverlay {
+  display: block;
+}
+
 .moviePoster {
   max-width: 100%;
   height: 400px;
   object-fit: cover;
+  transition: all .3s linear;
+}
+
+.movieDesctiption {
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .movieTitle {
@@ -31,11 +71,13 @@
   font-size: 18px;
   overflow-wrap: break-word;
   padding: 3px;
+  position: absolute;
+  left: 5px;
 }
 
 .movieYear {
   position: absolute;
-  right: 5px;
-  bottom: 3px;
+  right: 10px;
+  bottom: 10px;
   font-style: italic;
 }
