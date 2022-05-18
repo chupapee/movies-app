@@ -2,7 +2,6 @@ import React from 'react'
 import './movieDetails.css'
 
 export function MovieDetails({info}) {
-console.log(info);
   return (
     <div className='movieWrapper'>
       <div className='moviePosterWrapper'>
