@@ -14,17 +14,7 @@ export default function Movies() {
   const pages = useSelector(state => state.movies.pages)
 
   const findMovie = (movieTitle) => {
-    fetchMovies(movieTitle, refreshData)
-    // searchApi.findMovie(movieTitle)
-    // .then(newMovies => {
-    //   dispatch(addMovies(newMovies))
-    //   let totalPages = []
-    //   for(let i = 1; i <= (Math.ceil(newMovies.length / 3)); i++){
-    //     totalPages.push(i)
-    //   }
-    //   dispatch(setPages(totalPages))
-    //   refreshData()
-    // })
+    dispatch(fetchMovies(movieTitle, refreshData))
   }
 
   const refreshData = () => {

@@ -2,23 +2,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { searchApi } from '../../dal/searchMovieAPI'
 
 export const fetchMovies = createAsyncThunk(
-  'movies/addMovies',
+  'movies/fetchMovies',
   async (movieTitle, refreshData) => {
-    console.log(movieTitle);
     const newMovies = await searchApi.findMovie(movieTitle)
     return newMovies
   }
 )
 
+const initialState = {
+  movies: [],
+  currentPage: 1,
+  pages: [],
+  isLoading: false,
+  error: false
+}
+
 export const movieSlice = createSlice({
   name: 'movies',
-  initialState: {
-    movies: [],
-    currentPage: 1,
-    pages: [],
-    isLoading: false,
-    error: false
-  },
+  initialState,
   reducers: {
     addMovies: (state, action) => {
       state.movies.push(...action.payload)
@@ -33,19 +34,21 @@ export const movieSlice = createSlice({
       state.currentPage = action.payload
     }
   },
-  extraReducers: {
-    [addMovies.pending]: state => {
-      state.isLoading = true
-    },
-    [addMovies.fulfilled]: (state, action) => {
-      state.movies.push(...action.payload)
-      for(let i = 1; i <= (Math.ceil(action.payload.length / 3)); i++){
-        state.pages.push(i)
-      }
-    },
-    [addMovies.error]: (state, action) => {
-      state.error = true
-    }
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchMovies.pending.type, state => {
+        state.isLoading = true
+      })
+      .addCase(fetchMovies.fulfilled.type, (state, action) => {
+         state.movies.push(...action.payload)
+         for(let i = 1; i <= (Math.ceil(action.payload.length / 3)); i++){
+          state.pages.push(i)
+         }
+         state.isLoading = false
+      })
+      .addCase(fetchMovies.error.type, state => {
+        state.error = true
+      })
   }
 })
 
