@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: relative;
+  background: linear-gradient(#642b8e, black);
+  min-height: 100vh;
+}
+
+.header {
+  display: block;
+  height: 100px;
+  width: 100%;
+  color: aliceblue;
+  padding: 30px;
+}
+
+.header a {
+  margin-left: 50px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.contentWrapper {
+  max-width: 1000px;
+  margin: 70px auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin: 0 auto;
+  gap: 25px;
+}

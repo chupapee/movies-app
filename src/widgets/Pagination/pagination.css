@@ -1,0 +1,32 @@
+.paginationWrapper {
+  position: absolute;
+  left: 50%;
+  top: 600px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.pagination span {
+  background-color: white;
+  transition: all .2s linear;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.pagination span.active {
+  background-color: #642b8e;
+  color: white;
+}
+
+.pagination span:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination span {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}

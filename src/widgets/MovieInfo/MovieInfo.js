@@ -1,9 +1,19 @@
 import React from 'react'
-import './movieDetails.css'
+import { useDispatch } from 'react-redux'
+import { NavLink } from 'react-router-dom';
+import { setMovieDetails } from '../../redux/slices.js/moviesSlice';
+import './movieInfo.css'
 
-export function MovieDetails({info}) {
+export function MovieInfo({info}) {
+  
+  const dispatch = useDispatch()
+
+  function chooseMovie(){
+    dispatch(setMovieDetails(info))
+  }
+
   return (
-    <div className='movieWrapper'>
+    <NavLink to='/movieDetails' onClick={chooseMovie} className='movieWrapper'>
       <div className='moviePosterWrapper'>
         <div className='moviePosterWrapper'>
           <img className='moviePoster' src={info.Poster} />
@@ -14,6 +24,6 @@ export function MovieDetails({info}) {
           <span className='movieYear'>{info.Year}</span>
         </div>
       </div>
-    </div>
+    </NavLink>
   )
 }
