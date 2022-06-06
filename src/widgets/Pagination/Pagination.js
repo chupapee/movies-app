@@ -9,7 +9,7 @@ export default function Pagination() {
   const currentPage = useSelector(state => state.movies.currentPage)
 
   // change current page num
-  const changePage = (page) => {
+  const changePage = (e, page) => {
     dispatch(setCurrentPage(page))
   }
 
@@ -19,7 +19,7 @@ export default function Pagination() {
     <div className='paginationWrapper'>
       <div className='pagination'>
         {pages.map(page => (          
-          <span key={page} className={currentPage === page && 'active'} onClick={() => changePage(page)}>{page}</span>
+          <span key={page} className={currentPage === page ? 'active' : ''} onClick={(e) => changePage(e, page)}>{page}</span>
         ))}
       </div>
     </div>

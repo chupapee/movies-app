@@ -1,0 +1,43 @@
+.main {
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+}
+
+.poster {
+  padding: 15px;
+  width: 350px;
+}
+
+.details {
+  width: 100%;
+  padding: 50px 30px;
+  font-size: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.backBtn {
+  text-align: center;
+  width: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ddd;
+  color:  black;
+  transition: all .2s linear;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-style: italic;
+  text-decoration: none;
+}
+  
+.backBtn:hover:not(.active) {
+  background-color: #642b8e;
+  color: white;
+}

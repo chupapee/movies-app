@@ -6,32 +6,34 @@
 
 .wrapper {
   position: relative;
-  background: linear-gradient(#642b8e, black);
+  background: linear-gradient(#642b8e, black); 
   min-height: 100vh;
+  color: white;
 }
 
 .header {
   display: block;
-  height: 100px;
+  height: 75px;
   width: 100%;
   color: aliceblue;
-  padding: 30px;
+  background-color: black;
+  margin-bottom: 20px;
 }
 
-.header a {
-  margin-left: 50px;
+.header img {
+  width: 90px;
+  margin: 15px 0 0 100px;
   cursor: pointer;
-  font-size: 30px;
 }
 
 .contentWrapper {
-  max-width: 1000px;
-  margin: 70px auto;
+  max-width: 1300px;
+  margin: 30px auto;
 }
 
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   margin: 0 auto;
   gap: 25px;

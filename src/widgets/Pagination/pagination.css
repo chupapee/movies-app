@@ -1,8 +1,5 @@
 .paginationWrapper {
-  position: absolute;
-  left: 50%;
-  top: 600px;
-  transform: translateX(-50%);
+  margin: 30px;
   display: flex;
   justify-content: center;
 }

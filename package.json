@@ -2,6 +2,7 @@
   "name": "train",
   "version": "0.1.0",
   "private": true,
+  "plugins": ["@babel/plugin-syntax-throw-expressions"],
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -47,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-throw-expressions": "^7.16.7"
   }
 }

@@ -1,28 +1,40 @@
 .movieWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  height: 400px;
-  background-color:cadetblue;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  width: 95%;
+  height: 500px;
   overflow: hidden;
-
+  border-radius: 4px;
+  
   font-size: 18px;
   font-weight: bold;
-  padding: 3px;
   background-color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: white;
-
   position: relative;
 }
 
-.moviePosterWrapper {
+.linkWrap {
   width: 100%;
-  position: relative; 
+  height: 100%;
+}
+
+.posterWrapper {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.posterWrapper:hover {
+  cursor: pointer;
+}
+
+.posterWrapper:hover .moviePoster {
+  transform: scale(1.1);
+}
+
+.posterWrapper:hover .movieOverlay {
+  display: block;
 }
 
 .movieOverlay {
@@ -30,53 +42,67 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 0;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
-.moviePosterWrapper:hover {
-  cursor: pointer;
-}
-
-.moviePosterWrapper:hover .moviePoster {
-  transform: scale(1.1);
-}
-
-.moviePosterWrapper:hover .movieOverlay {
-  display: block;
-}
 
 .moviePoster {
   width: 100%;
-  height: 400px;
   object-fit: cover;
-  transition: all .3s linear;
+  height: 400px;
+  transition: all .4s linear;
 }
 
 .movieDesctiption {
-  font-size: 16px;
-  padding: 5px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  font-size: 17px;
   width: 100%;
-  height: 30%;
-  transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.75);
+  height: 100%;
+  color: white;
+  background-color: black;
+  position: relative;
+  transition: .1s linear all;
 }
 
 .movieTitle {
-  display: block;
-  overflow-wrap: break-word;
-  padding: 3px;
+  width: 80%;
+  font-size: 18px;
   position: absolute;
-  left: 15px;
+  left: 10px;
+  top: 10px;
+  overflow-wrap: break-word;
+}
+
+.movieIconWrap {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .1s linear;
+}
+
+.movieIconWrap:hover{
+  background-color: rgba(65, 65, 65, 0.59);
+  border-radius: 100%;
+}
+
+.movieCalendar {
+  position: absolute;
+  right: 60px;
+  bottom: 13px;
 }
 
 .movieYear {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
   font-style: italic;
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
 }

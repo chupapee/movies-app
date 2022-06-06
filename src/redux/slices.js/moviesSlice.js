@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit"
 import { searchApi } from '../../dal/searchMovieAPI'
 
 export const fetchMovies = createAsyncThunk(
@@ -9,9 +9,17 @@ export const fetchMovies = createAsyncThunk(
   }
 )
 
+export const fetchInfo = createAsyncThunk(
+  'movies/fetchInfo',
+  async (movieTitle) => {
+    const info = await searchApi.fetchInfo(movieTitle)
+    return info
+  }
+)
+
 const initialState = {
   movies: [],
-  movieDetails: null,
+  movieDetails: [],
   currentPage: 1,
   pages: [],
   isLoading: false,
@@ -22,16 +30,6 @@ export const movieSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    addMovies: (state, action) => {
-      state.movies.push(...action.payload)
-      state.pages = []
-      for(let i = 1; i <= (Math.ceil(action.payload.length / 3)); i++){
-        state.pages.push(i)
-      }
-    },
-    setPages: (state, action) => {
-      state.pages = action.payload
-    },
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload
     },
@@ -54,6 +52,18 @@ export const movieSlice = createSlice({
           state.isLoading = false
       })
       .addCase(fetchMovies.rejected.type, state => {
+        state.error = true
+      })
+
+      .addCase(fetchInfo.pending.type, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(fetchInfo.fulfilled.type, (state, {payload}) => {
+        console.log(payload);
+        state.movieDetails = payload
+        state.isLoading = false
+      })
+      .addCase(fetchInfo.rejected.type, state => {
         state.error = true
       })
   }

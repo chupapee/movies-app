@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchMovies } from '../../redux/slices.js/moviesSlice'
 import './searchForm.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 export function SearchForm() {
   const [movieTitle, setMovieTitle] = useState('')
@@ -13,9 +14,9 @@ export function SearchForm() {
     dispatch(fetchMovies(movieTitle))
   }
 
-  // fetch data on the first render
+  // Initial value set to 'man' to display default search results on UI
   useEffect( () => {
-    setMovie('Avengers')
+    setMovie('man')
   }, [])
   
 
@@ -28,13 +29,14 @@ export function SearchForm() {
     <form onSubmit={findMovie} className='searchForm'>
       <input
         type="text"
-        className='searchInput' 
+        className='searchInput'
         onChange={ e => setMovieTitle(e.target.value) } 
         value={movieTitle}
         placeholder='Search for a movie..'
       >
       </input>
-      <button className='searchIcon' />
+      <button className='searchBtn' />
+      <SearchIcon className='searchIcon'/>
     </form>
   )
 }
