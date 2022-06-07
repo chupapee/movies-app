@@ -35,8 +35,11 @@ export function SearchForm() {
         placeholder='Search for a movie..'
       >
       </input>
-      <button className='searchBtn' />
-      <SearchIcon className='searchIcon'/>
+      <button className='searchBtn'>
+      <div className='searchIconWrap'>
+        <SearchIcon className='searchIcon'/>
+      </div>
+      </button>
     </form>
   )
 }

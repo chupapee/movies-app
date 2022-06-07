@@ -23,12 +23,16 @@ export function MovieInfo({info}) {
           </div>
         </NavLink>
         <div className='movieDesctiption' onClick={e => {e.stopImmediatePropagation()}}>
-          <span className='movieTitle'>{info.Title}</span>
-          <div className='movieIconWrap'>
-            <FavoriteIcon className='movieIcon' />
+          <div className='movieTitle'>{info.Title}</div>
+          <div className='moviesIconsWrap'>
+            <div className='movieCalendar'>
+            <CalendarMonthIcon/>
+            <span className='movieYear'>{info.Year}</span>
+            </div>
+            <div className='movieLikeWrap'>
+              <FavoriteIcon className='movieLike' />
+            </div>
           </div>
-          <CalendarMonthIcon className='movieCalendar'/>
-          <span className='movieYear'>{info.Year}</span>
         </div>
     </div>
   )

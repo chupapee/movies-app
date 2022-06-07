@@ -29,10 +29,18 @@
   z-index: 1;
 }
 
-.searchIcon {
-  width: 30px;
-  height: 45px;
-  position: absolute;
-  transform:translate(-34px, 14px);
-  cursor: pointer;
+.searchIconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 43px;
+  height: 40px;
+  color: white;
+  border-radius: 100%;
+  transition: all .1s linear;
+}
+
+.searchIconWrap:hover {
+  color: white;
+  background-color: rgba(65, 65, 65, 0.59);
 }
