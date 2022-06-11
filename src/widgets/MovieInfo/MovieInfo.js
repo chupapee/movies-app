@@ -19,11 +19,10 @@ export function MovieInfo({info}) {
         <NavLink to='/movieDetails' onClick={() => chooseMovie(info.Title)} className='linkWrap'>
           <div className='posterWrapper'>
             <img className='moviePoster' src={info.Poster} />
+            <div className='movieTitle'>{info.Title}</div>
             <div className='movieOverlay' />
           </div>
         </NavLink>
-        <div className='movieDesctiption' onClick={e => {e.stopImmediatePropagation()}}>
-          <div className='movieTitle'>{info.Title}</div>
           <div className='moviesIconsWrap'>
             <div className='movieCalendar'>
             <CalendarMonthIcon/>
@@ -33,7 +32,6 @@ export function MovieInfo({info}) {
               <FavoriteIcon className='movieLike' />
             </div>
           </div>
-        </div>
     </div>
   )
 }

@@ -17,24 +17,24 @@
   width: 100%;
   color: aliceblue;
   background-color: black;
-  margin-bottom: 20px;
+  padding: 0 15px;
 }
 
 .header img {
   width: 90px;
-  margin: 15px 0 0 100px;
+  margin: 15px 0 0 85px;
   cursor: pointer;
 }
 
 .contentWrapper {
-  max-width: 1300px;
-  margin: 30px auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
+  max-width: 1215px;
   margin: 0 auto;
-  gap: 25px;
+  padding: 0 15px;
+  display: flex;
+  gap: 15px;
 }

@@ -39,32 +39,34 @@ export const movieSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMovies.pending.type, (state, action) => {
+      .addCase(fetchMovies.pending, (state, action) => {
         state.isLoading = true
       })
-      .addCase(fetchMovies.fulfilled.type, (state, {payload}) => {
-        state.movies = payload
+      .addCase(fetchMovies.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.movies = action.payload
+        // state.isLoading = false
         state.pages = []
         state.currentPage = 1
-        for(let i = 1; i <= (Math.ceil(payload.length / 3)); i++){
+        for(let i = 1; i <= (Math.ceil(action.payload.length / 4)); i++){
           state.pages.push(i)
         }
-          state.isLoading = false
       })
-      .addCase(fetchMovies.rejected.type, state => {
+      .addCase(fetchMovies.rejected, state => {
         state.error = true
+        // state.isLoading = false
       })
 
       .addCase(fetchInfo.pending.type, (state, action) => {
         state.isLoading = true
       })
       .addCase(fetchInfo.fulfilled.type, (state, {payload}) => {
-        console.log(payload);
         state.movieDetails = payload
         state.isLoading = false
       })
       .addCase(fetchInfo.rejected.type, state => {
         state.error = true
+        state.isLoading = false
       })
   }
 })

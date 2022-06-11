@@ -11,8 +11,7 @@ export function MovieDetails() {
   console.log(data);
 
   return (
-    <div className="wrapper">
-      <Header />
+    <>
       <NavLink className='backBtn' to='/'>
         <ArrowBackIosNewIcon classname='backIcon' />
       </NavLink>
@@ -42,6 +41,6 @@ export function MovieDetails() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

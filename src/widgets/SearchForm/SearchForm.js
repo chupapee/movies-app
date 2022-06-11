@@ -9,12 +9,12 @@ export function SearchForm() {
   
   const dispatch = useDispatch()
 
-  // function of fetching data
+  // fetching data
   const setMovie = (movieTitle) => {
     dispatch(fetchMovies(movieTitle))
   }
 
-  // Initial value set to 'man' to display default search results on UI
+  // movies default value
   useEffect( () => {
     setMovie('man')
   }, [])
