@@ -3,19 +3,21 @@ import { NavLink } from "react-router-dom"
 import { Header } from "../../widgets/Header/Header"
 import './movieDetails.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { Preloader } from "../../widgets/Preloader/Preloader";
 
 export function MovieDetails() {
 
   // whole movie info
   const data = useSelector(state => state.movies.movieDetails)
-  console.log(data);
+  const isLoading = useSelector(state => state.movies.isLoading)
 
   return (
     <>
       <NavLink className='backBtn' to='/'>
         <ArrowBackIosNewIcon classname='backIcon' />
       </NavLink>
-      <div className="mainInfo">
+      { isLoading ? <Preloader />
+      :<div className="mainInfo"> 
         <div className="movieDetailsPosterWrap">
           <img className="movieDetailsPoster" src={data.Poster} alt="moviePoster" />
         </div>
@@ -41,6 +43,7 @@ export function MovieDetails() {
           </div>
         </div>
       </div>
+      }
     </>
   )
 }

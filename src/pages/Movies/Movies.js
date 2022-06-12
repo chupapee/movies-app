@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { MovieInfo } from '../../widgets/MovieInfo/MovieInfo'
+import { Preloader } from '../../widgets/Preloader/Preloader';
 
 export function Movies() {
 
@@ -22,9 +23,12 @@ export function Movies() {
     devideMovies()
   }, [movies, currentPage])
 
+  const isLoading = useSelector(state => state.movies.isLoading)
+
   return (
     <>
-      {devidedMovies.map((movie, index) => (
+      { isLoading ? <Preloader />
+      : devidedMovies.map((movie, index) => (
         <MovieInfo key={index} info={movie}>{movies[index].Title}</MovieInfo>
       ))}
     </>

@@ -1,11 +1,13 @@
-import { createSlice, createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, } from "@reduxjs/toolkit"
 import { searchApi } from '../../dal/searchMovieAPI'
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
-  async (movieTitle) => {
+  async (movieTitle, {dispatch, getState}) => {
+    dispatch(setIsloaingStatus(true))
     const newMovies = await searchApi.findMovie(movieTitle)
-    return newMovies
+    dispatch(setMovies(newMovies))
+    dispatch(setIsloaingStatus(false))
   }
 )
 
@@ -35,40 +37,51 @@ export const movieSlice = createSlice({
     },
     setMovieDetails: (state, action) => {
       state.movieDetails = action.payload
-    }
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchMovies.pending, (state, action) => {
-        state.isLoading = true
-      })
-      .addCase(fetchMovies.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.movies = action.payload
+    },
+    setMovies: (state, action) => {
+      console.log(action.payload);
+      state.movies = action.payload
         // state.isLoading = false
         state.pages = []
         state.currentPage = 1
         for(let i = 1; i <= (Math.ceil(action.payload.length / 4)); i++){
           state.pages.push(i)
         }
-      })
-      .addCase(fetchMovies.rejected, state => {
-        state.error = true
-        // state.isLoading = false
-      })
-
-      .addCase(fetchInfo.pending.type, (state, action) => {
-        state.isLoading = true
-      })
-      .addCase(fetchInfo.fulfilled.type, (state, {payload}) => {
-        state.movieDetails = payload
-        state.isLoading = false
-      })
-      .addCase(fetchInfo.rejected.type, state => {
-        state.error = true
-        state.isLoading = false
-      })
-  }
+    },
+    setIsloaingStatus: (state, action) => {
+      // debugger
+      console.log(action.payload);
+      state.isLoading = action.payload
+    }
+  },
+  // extraReducers: builder => {
+  //   builder
+  //     // .addCase(fetchMovies.pending, (state, action) => {state.isLoading = true})
+  //     .addCase(fetchMovies.fulfilled, (state, action) => {
+  //       state.movies = action.payload
+  //       // state.isLoading = false
+  //       state.pages = []
+  //       state.currentPage = 1
+  //       for(let i = 1; i <= (Math.ceil(action.payload.length / 4)); i++){
+  //         state.pages.push(i)
+  //       }
+  //     })
+  //     .addCase(fetchMovies.rejected, state => {
+  //       state.error = true
+  //       // state.isLoading = false
+  //     })
+  //     .addCase(fetchInfo.pending, (state, action) => {
+  //       state.isLoading = true
+  //     })
+  //     .addCase(fetchInfo.fulfilled, (state, {payload}) => {
+  //       state.movieDetails = payload
+  //       state.isLoading = false
+  //     })
+  //     .addCase(fetchInfo.rejected, state => {
+  //       state.error = true
+  //       state.isLoading = false
+  //     })
+  // }
 })
 
-export const { addMovies, setPages, setCurrentPage, setMovieDetails } = movieSlice.actions
+export const { setIsloaingStatus, setMovies, setCurrentPage, setMovieDetails } = movieSlice.actions
