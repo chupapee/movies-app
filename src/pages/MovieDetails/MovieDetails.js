@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
-import { Header } from "../../widgets/Header/Header"
 import './movieDetails.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Preloader } from "../../widgets/Preloader/Preloader";

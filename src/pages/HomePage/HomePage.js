@@ -1,20 +1,24 @@
 import { Movies } from '../Movies/Movies'
 import { SearchForm } from '../../widgets/SearchForm/SearchForm';
 import './homePage.css'
-import Pagination from '../../widgets/Pagination/Pagination';
-import { useSelector } from 'react-redux';
-import { Preloader } from '../../widgets/Preloader/Preloader';
+import { Pagination } from '../../widgets/Pagination/Pagination';
+import { useSelector } from 'react-redux/es/exports';
 
-export default function HomePage() {
+export function HomePage() {
+
+  const error = useSelector(state => state.movies.error)
+
   return (
     <>
       <div className='contentWrapper'>
         <SearchForm />
-        <div className='content'>
-          <Movies />
-        </div>
+          {error.length > 0 ? <div className='error'>{error}</div>
+          : <div className='content'>
+              <Movies />
+            </div>
+          }
         <Pagination />
-      </div>
+        </div>
     </>
   )
 }

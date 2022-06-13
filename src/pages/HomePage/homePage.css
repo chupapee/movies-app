@@ -5,16 +5,17 @@
 }
 
 .wrapper {
-  position: relative;
-  background: linear-gradient(#642b8e, black); 
+  min-width: 100%;
   min-height: 100vh;
+  position: relative;
+  background: linear-gradient(#642b8e, black);
   color: white;
 }
 
 .header {
   display: block;
   height: 75px;
-  width: 100%;
+  min-width: 100%;
   color: aliceblue;
   background-color: black;
   padding: 0 15px;
@@ -32,9 +33,14 @@
 }
 
 .content {
-  max-width: 1215px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 10%;
   display: flex;
   gap: 15px;
+}
+
+.error {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
 }

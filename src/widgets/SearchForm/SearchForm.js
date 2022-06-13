@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchMovies } from '../../redux/slices.js/moviesSlice'
 import './searchForm.css'
 import SearchIcon from '@mui/icons-material/Search';
 
 export function SearchForm() {
   const [movieTitle, setMovieTitle] = useState('')
+  const error = useSelector(state => state.movies.error)
   
   const dispatch = useDispatch()
 
@@ -18,11 +19,18 @@ export function SearchForm() {
   useEffect( () => {
     setMovie('man')
   }, [])
-  
 
   const findMovie = (e) => {
     e.preventDefault()
-    setMovie(movieTitle)
+    !isEmpty && setMovie(movieTitle)
+  }
+
+  const [searchDirty, setSearchDirty] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(false)
+
+  const blurHandler = () => {
+    setSearchDirty(true)
+    movieTitle.length < 1 && setIsEmpty(true)
   }
 
   return (
@@ -32,7 +40,8 @@ export function SearchForm() {
         className='searchInput'
         onChange={ e => setMovieTitle(e.target.value) } 
         value={movieTitle}
-        placeholder='Search for a movie..'
+        placeholder={searchDirty ? 'Please, type something...' : 'Search for a movie..'}
+        onBlur={blurHandler}
       >
       </input>
       <button className='searchBtn'>

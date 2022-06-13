@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from '../../redux/slices.js/moviesSlice';
 import './pagination.css'
 
-export default function Pagination() {
+export function Pagination() {
 
   const dispatch = useDispatch()
   const currentPage = useSelector(state => state.movies.currentPage)

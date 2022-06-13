@@ -13,10 +13,11 @@ export function MovieInfo({info}) {
   function chooseMovie(title){
     dispatch(fetchInfo(title))
   }
+  const link = `/${info.imdbID}`
 
   return (
       <div className='movieWrapper'>
-        <NavLink to='/movieDetails' onClick={() => chooseMovie(info.Title)} className='linkWrap'>
+        <NavLink to={link} onClick={() => chooseMovie(info.Title)} className='linkWrap'>
           <div className='posterWrapper'>
             <img className='moviePoster' src={info.Poster} />
             <div className='movieTitle'>{info.Title}</div>
