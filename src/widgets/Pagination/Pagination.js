@@ -10,15 +10,16 @@ export function Pagination() {
 
   // change current page num
   const changePage = (e, page) => {
+    sessionStorage.setItem("currentPage", page)
     dispatch(setCurrentPage(page))
+    sessionStorage.setItem('page', page)
   }
 
   const pages = useSelector(state => state.movies.pages)
-
   return (
     <div className='paginationWrapper'>
       <div className='pagination'>
-        {pages.map(page => (          
+        {pages.map(page => (
           <span key={page} className={currentPage === page ? 'active' : ''} onClick={(e) => changePage(e, page)}>{page}</span>
         ))}
       </div>

@@ -1,8 +1,11 @@
 .mainInfo {
   width: 85%;
+  height: 75vh;
+  margin-top: 75px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
   gap: 10px;
 }
@@ -20,6 +23,8 @@
   align-items: center;
   color: white;
   transition: all linear .1s;
+  outline: none;
+  background-color: transparent;
 }
 
 .backBtn svg {
@@ -80,7 +85,8 @@
 .moviePlot {
   font-family: cursive;
   margin-bottom: 15px;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  line-height: 2;
 }
 
 .movieMoreDetails {

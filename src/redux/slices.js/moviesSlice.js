@@ -36,7 +36,11 @@ export const movieSlice = createSlice({
   initialState,
   reducers: {
     setCurrentPage: (state, action) => {
-      state.currentPage = action.payload
+      try {
+        state.currentPage = Number(sessionStorage.getItem("currentPage"))
+      } catch (e) {
+        state.currentPage = action.payload
+      }
     },
     setMovieDetails: (state, action) => {
       state.movieDetails = action.payload
@@ -53,7 +57,7 @@ export const movieSlice = createSlice({
         state.isLoading = false
         state.movies = action.payload
         state.pages = []
-        state.currentPage = 1
+        state.currentPage = Number(sessionStorage.getItem("currentPage")) || 1
         for(let i = 1; i <= (Math.ceil(action.payload.length / 4)); i++){
           state.pages.push(i)
         }
