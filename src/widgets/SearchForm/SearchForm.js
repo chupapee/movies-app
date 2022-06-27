@@ -17,12 +17,13 @@ export function SearchForm() {
 
   // movies default value
   useEffect( () => {
-    setMovie('man')
+    setMovie(sessionStorage.getItem('lastSearch') || 'man')
   }, [])
 
   const findMovie = (e) => {
+    sessionStorage.setItem('lastSearch', movieTitle)
     e.preventDefault()
-    !isEmpty && setMovie(movieTitle)
+    !isEmpty && setMovie(sessionStorage.getItem('lastSearch'))
   }
 
   const [searchDirty, setSearchDirty] = useState(false)

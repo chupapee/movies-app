@@ -16,7 +16,7 @@ export function MovieDetails() {
   return (
     <>
       <button onClick={goBack} className='backBtn'>
-        <ArrowBackIosNewIcon classname='backIcon' />
+        <ArrowBackIosNewIcon className='backIcon' />
       </button>
       { isLoading ? <Preloader />
       :<div className="mainInfo"> 
