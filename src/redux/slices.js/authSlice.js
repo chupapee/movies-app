@@ -4,6 +4,7 @@ import { authApi } from "../../dal/authApi"
 export const checkEmail = createAsyncThunk(
   'email/checkEmail',
   async (email, rejectWithValue) => {
+    console.log('dasdsa')
     try {
       debugger
       console.log(email);
@@ -12,12 +13,9 @@ export const checkEmail = createAsyncThunk(
       throw new Error()
     } catch(e) {
       return rejectWithValue(e)
-    } 
+    }
   }
 )
-
-checkEmail({email: 'kamolkhamidov200002@gmail.com', login: 'someLogin'})
-
 
 const initialState = {
   isValid: false,
@@ -32,6 +30,7 @@ export const movieDetailsSlice = createSlice({
   extraReducers: builder => {
     builder
     .addCase(checkEmail.pending, state => {
+      console.log('sdasdsa')
       state.checking = true
     })
     .addCase(checkEmail.fulfilled, (state, action) => {

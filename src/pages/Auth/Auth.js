@@ -15,20 +15,18 @@ export function Auth() {
 
   function formHandler(e){
     e.preventDefault()
-    checkEmail({email: 'kamolkhamidov200002@gmail.com', login: 'someLogin'})
-    // authApi.checkEmail(e.target.email.value)
-    // .then(resp => console.log(resp))
+    checkEmail(e.target.email.value)
   }
 
   return (
     <>
-    <h1 className='authHeader'>Authorization</h1>
-    <form onSubmit={formHandler} className='Authform'>
-      <input name='login' type="text" placeholder='Login'/>
-      <input name='email' type="email" placeholder='Email'/>
+    <h1 className='authHeader'>Welcome</h1>
+    <form onSubmit={formHandler} className='Authform' autoComplete='off'>
+      <input name='email' type="email" placeholder='Email' required=""
+             autoFocus=""
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
       <input name='password' type="password" placeholder='Password' />
-      <button onClick={loginHandler}>Log in</button>
-      <button onClick={signInHandler}>Sign in</button>
+      <input type='submit' value='Sign in' className='formBtn'/>
     </form>
     </>
   )

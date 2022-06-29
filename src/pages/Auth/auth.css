@@ -1,4 +1,48 @@
-.form {
+.Authform {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
   width: 500px;
-  height: 500px;
+}
+
+.authHeader {
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.8;
+  font-size: 2em;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.Authform input {
+  background: transparent;
+  width: 400px;
+  padding: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  border: 1px solid grey;
+  border-radius: 5000px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.Authform input:hover,
+.Authform input:focus {
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+
+.Authform .formBtn {
+  width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.formBtn:active {
+  background: rgba(255,255,255,0.2);
 }

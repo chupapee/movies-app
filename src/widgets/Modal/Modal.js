@@ -1,15 +1,10 @@
 import './modal.css'
 
-export const Modal = ({children, visitble, setVisible}) => {
+export const Modal = ({children}) => {
 
-  const rootClasses = ['modalWrap']
-
-  if (visitble) {
-    rootClasses.push('active')
-  }
 
   return (
-    <div className={rootClasses.join(' ')}>
+    <div className='modalWrap' >
       <div className='modalContent'>
         {children}
       </div>
