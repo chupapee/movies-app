@@ -6,5 +6,6 @@ const moviesReducer = movieSlice.reducer
 export const store = configureStore({
   reducer: {
     movies: moviesReducer
-  }
+  },
+
 })

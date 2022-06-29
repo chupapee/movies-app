@@ -84,4 +84,4 @@ export const movieSlice = createSlice({
   }
 })
 
-export const { setIsloaingStatus, setMovies, setCurrentPage, setMovieDetails } = movieSlice.actions
+export const { setCurrentPage } = movieSlice.actions
