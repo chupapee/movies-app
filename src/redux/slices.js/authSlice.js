@@ -20,7 +20,7 @@ const initialState = {
   checking: false
 }
 
-export const movieDetailsSlice = createSlice({
+export const authSlice = createSlice({
   name: 'email',
   initialState,
   reducers: {},
