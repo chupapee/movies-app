@@ -15,9 +15,9 @@ export const checkEmail = createAsyncThunk(
 )
 
 const initialState = {
-  isValid: false,
-  email: '',
-  checking: false
+  isValid: true,
+  checking: false,
+  checked: false
 }
 
 export const authSlice = createSlice({
@@ -31,7 +31,7 @@ export const authSlice = createSlice({
     })
     .addCase(checkEmail.fulfilled, (state, action) => {
       state.isValid = true
-      console.log(action.payload);
+      state.checked = true
       state.checking = false
     })
     .addCase(checkEmail.rejected, (state, {payload}) => {

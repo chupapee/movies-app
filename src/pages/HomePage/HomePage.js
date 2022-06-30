@@ -9,10 +9,13 @@ import { Auth } from "../Auth/Auth";
 export function HomePage() {
 
   const error = useSelector(state => state.movies.error)
+  const checked = useSelector(state => state.auth.checked)
+  const params = {}
+  if(checked) params.finished = true
 
   return (
     <>
-      <Modal>
+      <Modal {...params}>
         <Auth />
       </Modal>
       <div className='contentWrapper'>

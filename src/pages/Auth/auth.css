@@ -1,8 +1,8 @@
 .Authform {
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 500px;
 }
 
@@ -43,6 +43,6 @@
   cursor: pointer;
 }
 
-.formBtn:active {
+.Authform .formBtn:active {
   background: rgba(255,255,255,0.2);
 }
