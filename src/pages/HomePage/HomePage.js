@@ -11,7 +11,7 @@ export function HomePage() {
   const error = useSelector(state => state.movies.error)
   const checked = useSelector(state => state.auth.checked)
   const params = {}
-  if(checked) params.finished = true
+  if(checked || sessionStorage.getItem('email')) params.finished = true
 
   return (
     <>

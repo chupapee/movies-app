@@ -38,5 +38,7 @@
 }
 
 .modalFinished {
-  display: none;
+  transition: .2s linear;
+  transform: translateX(-100%);
+  background-color: transparent;
 }
