@@ -15,18 +15,18 @@ export function Auth() {
   }
 
   const checking = useSelector(state => state.auth.checking)
-  const isValid = useSelector(state => state.auth.isValid)
+  let isValid = useSelector(state => state.auth.isValid)
 
   const [password, setPassword] = useState('')
   const [passBlur, setPassBlur] = useState(false)
-  const passwordRegex = new RegExp('[0-9]{10}')
+  const passwordRegex = new RegExp(/[0-9]{10}/)
   const passBlurHandler = () => {
     setPassBlur(true)
   }
 
   const [email, setEmail] = useState('')
   const [emailBlur, setEmailBlur] = useState(false)
-  const emailRegex = new RegExp('/(.+)@(.+){2,}\\.(.+){2,}/')
+  const emailRegex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
   const emailBlurHandler = () => {
     setEmailBlur(true)
   }
@@ -35,22 +35,23 @@ export function Auth() {
     <>
     <h1 className='authHeader'>W E L C O M E</h1>
     <form onSubmit={formHandler} className='Authform' autoComplete='off'>
+      {!isValid && <p>Please, enter a valid email address</p>}
       <input name='email' type="email" placeholder='Email' required=""
              autoFocus=""
-             onChange={e => setEmail(e.target.value)} value={email}
+             onChange={e => {
+               setEmail(e.target.value)
+             }} value={email}
              onBlur={emailBlurHandler}
       />
-      {!isValid && <p>Please, enter valid email address</p>}
       {emailBlur && !emailRegex.test(email) && <p>wrong email!</p>}
       <input name='password'
              type="password"
              placeholder='Password'
-             pattern=''
              onChange={e => setPassword(e.target.value)}
              value={password}
              onBlur={passBlurHandler}
       />
-      {passBlur && !passwordRegex.test(password) && <p>password must contain 10 numbers at least</p>}
+      {passBlur && !passwordRegex.test(password) && <p>password must contain 10 numbers only at least</p>}
       <input type='submit'
              value='Sign in'
              className='formBtn'

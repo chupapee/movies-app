@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_KEY = '09549345b00b4e6085c4d86da56ae972'
+const API_KEY = '57dca2bf0baa452f92a0eb2f163481e9'
 
 export const authApi = {
   checkEmail(email){
