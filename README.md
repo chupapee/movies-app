@@ -1,6 +1,6 @@
 ## Quick run
 
-[fakeIMDB](https://github.com/comeall09/movies_app)
+[fakeIMDB](https://comeall09.github.io/movies_app)
 
 ## Available functionality
 
