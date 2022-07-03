@@ -21,6 +21,7 @@ export function SearchForm() {
 
   const findMovie = (e) => {
     localStorage.setItem('lastSearch', movieTitle)
+    localStorage.setItem('currentPage', 1)
     e.preventDefault()
     !isEmpty && setMovie(localStorage.getItem('lastSearch'))
   }
