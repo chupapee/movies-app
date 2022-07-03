@@ -10,4 +10,4 @@ The project the following features:
 
 ### `• show the detail info about movie`
 
-### `• check email validity`
+### `• checking email validity`
