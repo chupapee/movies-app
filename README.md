@@ -6,7 +6,7 @@
 
 The project the following features:
 
-### `• look for movies by title`
+### `• looking for movies by title`
 
 ### `• show the detail info about movie`
 
