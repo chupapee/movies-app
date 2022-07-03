@@ -7,12 +7,13 @@ export function Pagination() {
 
   const dispatch = useDispatch()
   const currentPage = useSelector(state => state.movies.currentPage)
+  console.log()
 
   // change current page num
   const changePage = (e, page) => {
-    sessionStorage.setItem("currentPage", page)
+    localStorage.setItem("currentPage", page)
     dispatch(setCurrentPage(page))
-    sessionStorage.setItem('page', page)
+    localStorage.setItem('page', page)
   }
 
   const pages = useSelector(state => state.movies.pages)

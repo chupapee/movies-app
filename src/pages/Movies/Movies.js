@@ -11,8 +11,8 @@ export function Movies() {
   //  array created for pagination
   const [devidedMovies, setDevidedMovies] = useState([])
 
-  // function that takes 4 array elements
-  const devideArray = (arr, index) => arr.splice((index - 1) * 4, 4)
+  // function taking 8 array elements
+  const devideArray = (arr, index) => arr.splice((index - 1) * 8, 8)
 
   // take 4 store movies items
   const devideMovies = () => {

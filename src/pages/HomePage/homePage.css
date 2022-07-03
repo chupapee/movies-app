@@ -35,8 +35,9 @@
 .content {
   margin: 0 auto;
   padding: 0 10%;
-  display: flex;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 
 .error {

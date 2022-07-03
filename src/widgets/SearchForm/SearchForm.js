@@ -6,7 +6,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export function SearchForm() {
   const [movieTitle, setMovieTitle] = useState('')
-  const error = useSelector(state => state.movies.error)
   
   const dispatch = useDispatch()
 
@@ -17,13 +16,13 @@ export function SearchForm() {
 
   // movies default value
   useEffect( () => {
-    setMovie(sessionStorage.getItem('lastSearch') || 'man')
+    setMovie(localStorage.getItem('lastSearch') || 'man')
   }, [])
 
   const findMovie = (e) => {
-    sessionStorage.setItem('lastSearch', movieTitle)
+    localStorage.setItem('lastSearch', movieTitle)
     e.preventDefault()
-    !isEmpty && setMovie(sessionStorage.getItem('lastSearch'))
+    !isEmpty && setMovie(localStorage.getItem('lastSearch'))
   }
 
   const [searchDirty, setSearchDirty] = useState(false)

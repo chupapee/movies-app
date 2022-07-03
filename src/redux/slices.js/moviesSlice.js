@@ -5,8 +5,14 @@ export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
   async (movieTitle, { rejectWithValue }) => {
     try {
-      const data = await searchApi.findMovie(movieTitle)
-      if(data.Response === 'True') return data.Search
+      let fullData = {}
+      const data = await searchApi.findMovie(movieTitle, 1) // second arg is pageNum
+      if(data.Response === 'True') {
+        fullData = data.Search
+        const secondData = await searchApi.findMovie(movieTitle, 2)
+        if(secondData.Response === 'True') fullData.push(...secondData.Search)
+        return fullData
+      }
       throw data.Error
     } catch(error){
       return rejectWithValue(error)
@@ -37,7 +43,7 @@ export const movieSlice = createSlice({
   reducers: {
     setCurrentPage: (state, action) => {
       try {
-        state.currentPage = Number(sessionStorage.getItem("currentPage"))
+        state.currentPage = Number(localStorage.getItem("currentPage"))
       } catch (e) {
         state.currentPage = action.payload
       }
@@ -57,8 +63,8 @@ export const movieSlice = createSlice({
         state.isLoading = false
         state.movies = action.payload
         state.pages = []
-        state.currentPage = Number(sessionStorage.getItem("currentPage")) || 1
-        for(let i = 1; i <= (Math.ceil(action.payload.length / 4)); i++){
+        state.currentPage = Number(localStorage.getItem("currentPage")) || 1
+        for(let i = 1; i <= (Math.ceil(action.payload.length / 8)); i++){
           state.pages.push(i)
         }
       })

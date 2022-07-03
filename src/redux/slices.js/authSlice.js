@@ -7,7 +7,7 @@ export const checkEmail = createAsyncThunk(
   try {
     const isValid = await authApi.checkEmail(email)
     if(isValid) {
-      sessionStorage.setItem('email', email)
+      localStorage.setItem('email', email)
       return isValid
     }
     throw new Error('invalid email')
