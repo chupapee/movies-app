@@ -44,6 +44,7 @@ export const movieSlice = createSlice({
     setCurrentPage: (state, action) => {
       try {
         state.currentPage = Number(localStorage.getItem("currentPage"))
+        state.isLoading = false
       } catch (e) {
         state.currentPage = action.payload
       }

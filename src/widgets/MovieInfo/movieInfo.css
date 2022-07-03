@@ -93,8 +93,8 @@
 }
 
 .movieCalendar {
-  width: 100px;
   height: 100%;
+  margin-left: 10px;
   gap: 5px;
   display: flex;
   justify-content: center;

@@ -7,7 +7,6 @@ export function Pagination() {
 
   const dispatch = useDispatch()
   const currentPage = useSelector(state => state.movies.currentPage)
-  console.log()
 
   // change current page num
   const changePage = (e, page) => {
