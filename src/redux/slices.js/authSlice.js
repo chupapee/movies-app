@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, } from "@reduxjs/toolkit"
-import { authApi } from "../../dal/authApi"
+import { authApi } from "../../service/authApi"
 
 export const checkEmail = createAsyncThunk(
   'email/checkEmail',
