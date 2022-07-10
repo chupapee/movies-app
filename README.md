@@ -1,13 +1,13 @@
-## Quick run
+##🌎 Live demo:[movies_app](https://comeall09.github.io/movies_app)
 
-[fakeIMDB](https://comeall09.github.io/movies_app)
+## 💻 Tech used:
 
-## Available functionality
+### • React
 
-The project the following features:
+### • Redux Toolkit as state management
 
-### `• looking for movies by title`
+### • 
 
-### `• show the detail info about movie`
+### • OMDb API to fetch movie data
 
-### `• checking an email validity`
+### • [Abstract API](abstractapi.com) to check email validity
