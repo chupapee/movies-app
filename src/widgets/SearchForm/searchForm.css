@@ -1,10 +1,10 @@
 .searchForm {
   text-align: center;
-  padding: 20px;
+  padding: 2em;
 }
 
 .searchInput {
-  width: 25%;
+  min-width: 25%;
   height: 50px;
   padding: 15px;
   padding-right: 40px;

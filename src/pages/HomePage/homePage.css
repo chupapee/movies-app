@@ -23,7 +23,7 @@
 
 .header img {
   width: 90px;
-  margin: 15px 0 0 85px;
+  margin: 15px 0 0 1.5rem;
   cursor: pointer;
 }
 
@@ -44,4 +44,11 @@
   text-align: center;
   font-size: 25px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 770px){
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 5%;
+  }
 }

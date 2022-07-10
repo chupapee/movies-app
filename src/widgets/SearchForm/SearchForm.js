@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchMovies } from '../../redux/slices.js/moviesSlice'
 import './searchForm.css'
 import SearchIcon from '@mui/icons-material/Search';
@@ -41,7 +41,7 @@ export function SearchForm() {
         className='searchInput'
         onChange={ e => setMovieTitle(e.target.value) } 
         value={movieTitle}
-        placeholder={searchDirty ? 'Please, type something...' : 'Search for a movie..'}
+        placeholder={searchDirty ? 'Please, type something...' : 'Search for a movie...'}
         onBlur={blurHandler}
       >
       </input>

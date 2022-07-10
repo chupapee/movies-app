@@ -3,7 +3,8 @@ import { authApi } from "../../service/authApi"
 
 export const checkEmail = createAsyncThunk(
   'email/checkEmail',
-  async (email, { rejectWithValue}) => {
+  async (data, { rejectWithValue}) => {
+    const [email, login] = data
   try {
     const isValid = await authApi.checkEmail(email)
     if(isValid) {

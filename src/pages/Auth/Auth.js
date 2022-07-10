@@ -10,7 +10,7 @@ export function Auth() {
   function formHandler(e){
     e.preventDefault()
     if(passwordRegex.test(password) && emailRegex.test(email)){
-      dispatch(checkEmail(e.target.email.value))
+      dispatch(checkEmail([email, login]))
     }
   }
 
@@ -31,11 +31,18 @@ export function Auth() {
     setEmailBlur(true)
   }
 
+  const [login, setLogin] = useState('')
+
   return (
     <>
     <h1 className='authHeader'>W E L C O M E</h1>
     <form onSubmit={formHandler} className='Authform' autoComplete='off'>
       {!isValid && <p>Please, enter a valid email address</p>}
+      <input name='login' type="text" placeholder='Login'
+             onChange={e => {
+               setLogin(e.target.value)
+             }} value={login}
+      />
       <input name='email' type="email" placeholder='Email' required=""
              autoFocus=""
              onChange={e => {
