@@ -13,17 +13,19 @@
 }
 
 .header {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 75px;
   min-width: 100%;
   color: aliceblue;
   background-color: black;
-  padding: 0 15px;
+  padding: 0 30px;
+  color: #f2ddff;
 }
 
 .header img {
   width: 90px;
-  margin: 15px 0 0 1.5rem;
   cursor: pointer;
 }
 

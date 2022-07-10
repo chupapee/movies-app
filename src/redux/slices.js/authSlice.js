@@ -6,10 +6,12 @@ export const checkEmail = createAsyncThunk(
   async (data, { rejectWithValue}) => {
     const [email, login] = data
   try {
-    const isValid = await authApi.checkEmail(email)
+    const isValid = false
+    // const isValid = await authApi.checkEmail(email)
     if(isValid) {
       localStorage.setItem('email', email)
-      return isValid
+      localStorage.setItem('login', login)
+      return login
     }
     throw new Error('invalid email')
   } catch (e) {
@@ -19,6 +21,7 @@ export const checkEmail = createAsyncThunk(
 )
 
 const initialState = {
+  login: '',
   isValid: true,
   checking: false,
   checked: false
@@ -35,6 +38,7 @@ export const authSlice = createSlice({
     })
     .addCase(checkEmail.fulfilled, (state, action) => {
       state.isValid = true
+      state.login = action.payload
       state.checked = true
       state.checking = false
     })
