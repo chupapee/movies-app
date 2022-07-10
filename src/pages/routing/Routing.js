@@ -10,8 +10,8 @@ export function Routing() {
   const url = `/${link}`
   return (
     <BrowserRouter>
+      <Header />
       <div className='wrapper'>
-        <Header />
         <Routes>
           <Route path='/*' element={<HomePage />}/>
           <Route path={url} element={<MovieDetails />}/>

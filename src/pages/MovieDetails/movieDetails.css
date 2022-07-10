@@ -9,13 +9,15 @@
 }
 
 .backBtn {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  border: 2px solid #642b8e;
   border-radius: 100%;
-  position: absolute;
-  top: 10px;
-  left: 35px;
+  position: fixed;
+  z-index: 20;
+  top: 13px;
+  left: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,5 +140,8 @@
   }
   .subInfo div {
     padding: 0 10px;
+  }
+  .header img {
+    width: 65px;
   }
 }
