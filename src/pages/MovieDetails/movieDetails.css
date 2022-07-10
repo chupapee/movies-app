@@ -16,8 +16,8 @@
   border-radius: 100%;
   position: fixed;
   z-index: 20;
-  top: 13px;
-  left: 130px;
+  bottom: 2vh;
+  left: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,10 +33,6 @@
 
 .backBtn:hover {
   background-color: rgba(65, 65, 65, 0.59);
-}
-
-.movieDetailsPosterWrap {
-  height: 600px;
 }
 
 .movieDetailsPoster {
