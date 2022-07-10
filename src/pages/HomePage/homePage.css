@@ -54,3 +54,10 @@
     padding: 0 5%;
   }
 }
+
+@media screen and (max-width: 530px){
+  .content {
+    grid-template-columns: 1fr;
+    padding: 0 5%;
+  }
+}

@@ -6,8 +6,7 @@ export const checkEmail = createAsyncThunk(
   async (data, { rejectWithValue}) => {
     const [email, login] = data
   try {
-    const isValid = false
-    // const isValid = await authApi.checkEmail(email)
+    const isValid = await authApi.checkEmail(email)
     if(isValid) {
       localStorage.setItem('email', email)
       localStorage.setItem('login', login)
