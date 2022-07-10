@@ -23,15 +23,8 @@ export function SearchForm() {
     localStorage.setItem('lastSearch', movieTitle)
     localStorage.setItem('currentPage', 1)
     e.preventDefault()
-    !isEmpty && setMovie(localStorage.getItem('lastSearch'))
-  }
-
-  const [searchDirty, setSearchDirty] = useState(false)
-  const [isEmpty, setIsEmpty] = useState(false)
-
-  const blurHandler = () => {
-    setSearchDirty(true)
-    movieTitle.length < 1 && setIsEmpty(true)
+    setMovie(localStorage.getItem('lastSearch'))
+    setMovieTitle('')
   }
 
   return (
@@ -39,10 +32,11 @@ export function SearchForm() {
       <input
         type="text"
         className='searchInput'
-        onChange={ e => setMovieTitle(e.target.value) } 
+        onChange={ e => setMovieTitle(e.target.value)}
         value={movieTitle}
-        placeholder={searchDirty ? 'Please, type something...' : 'Search for a movie...'}
-        onBlur={blurHandler}
+        placeholder='Search for a movie...'
+        minLength='1'
+        required
       >
       </input>
       <button className='searchBtn'>
