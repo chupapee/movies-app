@@ -16,7 +16,7 @@ export function SearchForm() {
 
   // movies default value
   useEffect( () => {
-    setMovie(localStorage.getItem('lastSearch') || 'man')
+    setMovie(localStorage.getItem('lastSearch') || 'game')
   }, [])
 
   const findMovie = (e) => {
