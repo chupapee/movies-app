@@ -1,13 +1,11 @@
-##🌎 Live demo:[movies_app](https://comeall09.github.io/movies_app)
+## 🌎 Live demo:[movies_app](https://comeall09.github.io/movies_app)
 
 ## 💻 Tech used:
 
-### • React
+### • React, Redux Toolkit
 
-### • Redux Toolkit as state management
+### • [Feature-Sliced Design](https://feature-sliced.design/) used partly as architectural methodology
 
-### • 
-
-### • OMDb API to fetch movie data
+### • [OMDb API](https://www.omdbapi.com/) to fetch movie data
 
 ### • [Abstract API](abstractapi.com) to check email validity
