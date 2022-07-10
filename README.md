@@ -1,4 +1,4 @@
-## 🌎 Live demo:[movies_app](https://comeall09.github.io/movies_app)
+## 🎥 Live demo: [movies_app](https://comeall09.github.io/movies_app)
 
 ## 💻 Tech used:
 
