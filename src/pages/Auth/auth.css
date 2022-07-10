@@ -66,3 +66,22 @@
     font-size: .8rem;
   }
 }
+
+@media screen and (max-width: 440px) {
+  .modalWrap {
+    padding-top: 25%;
+  }
+  
+  .authHeader {
+    font-size: 1.5em;
+  }
+
+  .Authform input {
+    width: 100%;
+    padding: .7em;
+  }
+
+  .Authform .formBtn {
+    font-size: .7em;
+  }
+}
