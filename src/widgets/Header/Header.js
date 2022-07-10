@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 export function Header() {
 
   const login = useSelector(state => state.auth.login) || localStorage.getItem("login")
-  console.log(login);
 
   return (
     <div className='header'>
