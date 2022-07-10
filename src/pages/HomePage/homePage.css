@@ -56,8 +56,18 @@
 }
 
 @media screen and (max-width: 530px){
+  .searchForm {
+    padding: 1em 0;
+  }
+  .searchInput {
+    width: 100%;
+  }
+  .contentWrapper {
+    padding: 0 50px;
+  }
   .content {
     grid-template-columns: 1fr;
-    padding: 0 5%;
+    padding: 0;
   }
+
 }
