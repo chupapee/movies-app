@@ -63,7 +63,7 @@
     width: 100%;
   }
   .contentWrapper {
-    padding: 0 50px;
+    padding: 0 30px;
   }
   .content {
     grid-template-columns: 1fr;
