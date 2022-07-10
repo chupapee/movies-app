@@ -17,9 +17,12 @@ export function HomePage() {
   const params = {}
   if(checked || localStorage.getItem('email')) params.finished = true
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pageChanged])
+  // scrolling to top on change pagination num
+  function scrollToTop(){
+    window.scroll({top: 0, left: 0, behavior: 'smooth'});
+  }
+
+  useEffect(scrollToTop, [pageChanged])
 
   return (
     <>
