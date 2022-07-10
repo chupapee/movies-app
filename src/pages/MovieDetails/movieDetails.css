@@ -39,7 +39,7 @@
 
 .movieDetailsPoster {
   padding: 15px;
-  min-width: 100%;
+  width: 100%;
   height: 615px;
   object-fit: cover;
 }
@@ -93,4 +93,50 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainInfo {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .mainInfo {
+    padding: 5px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .movieDetailsInfo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mainInfo {
+    align-items: center;
+  }
+  .moviePlot {
+    font-size: 1.0em;
+    line-height: 1.5;
+  }
+  .movieDetailsInfo {
+    padding: 5px;
+  }
+  .movieMoreDetails {
+    font-size: 1em;
+    gap: 5px;
+  }
+  .movieDetailsPosterWrap {
+    height: auto;
+  }
+  .movieDetailsPoster {
+    height: 500px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .subInfo div {
+    padding: 0 10px;
+  }
 }

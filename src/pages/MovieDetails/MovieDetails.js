@@ -21,27 +21,30 @@ export function MovieDetails() {
       { isLoading ? <Preloader />
       :<div className="mainInfo"> 
         <div className="movieDetailsPosterWrap">
-          <img className="movieDetailsPoster" src={data.Poster} alt="moviePoster" />
+          {data.Poster && <img className="movieDetailsPoster" src={data.Poster} alt="moviePoster" />}
         </div>
         <div className="movieDetailsInfo">
           <div className="moviePreDetails">
             <h1 className="movieDetailsTitle">{data.Title}</h1>
             <div className="subInfo">
-              <div>{data.Year}</div>
-              <div>{data.Rated}</div>
-              <div>{data.DVD}</div>
-              <div>{data.Runtime}</div>
+              {data.Year && <div>{data.Year}</div>}
+              {data.Rated && <div>{data.Rated}</div>}
+              {data.DVD && <div>{data.DVD}</div>}
+              {data.Runtime && <div>{data.Runtime}</div>}
             </div>
-            <div className="moviePlot">
-              <p>{data.Plot}</p>
-            </div>
+            {data.Plot && 
+              <div className="moviePlot">
+                <p>{data.Plot}</p>
+              </div>
+            }
+            
           </div>
           <div className="movieMoreDetails">
-            <div>Genre : {data.Genre}</div>
-            <div>Director : {data.Director}</div>
-            <div>Actors : {data.Actors}</div>
-            <div>Country : {data.Country}</div>
-            <div>Awards : {data.Awards}</div>
+            {data.Genre && <div>Genre : {data.Genre}</div>}
+            {data.Director && <div>Director : {data.Director}</div>}
+            {data.Actors && <div>Actors : {data.Actors}</div>}
+            {data.Country && <div>Country : {data.Country}</div>}
+            {data.Awards && <div>Awards : {data.Awards}</div>}
           </div>
         </div>
       </div>
