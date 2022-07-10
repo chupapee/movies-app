@@ -23,6 +23,7 @@ export function SearchForm() {
     localStorage.setItem('lastSearch', movieTitle)
     localStorage.setItem('currentPage', 1)
     e.preventDefault()
+    e.blur()
     setMovie(localStorage.getItem('lastSearch'))
     setMovieTitle('')
   }
