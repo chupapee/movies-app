@@ -35,8 +35,9 @@ export function Auth() {
                setLogin(e.target.value)
              }}
              value={login}
+             required
              minLength='3'
-             maxLength='15'
+             maxLength='20'
              title='enter symbols less than 15'
       />
       <input name='email' type="email" placeholder='Email' required=""
@@ -53,6 +54,7 @@ export function Auth() {
              placeholder='Password'
              minLength='10'
              title='password must contain 10 characters at least'
+             required
       />
       <input type='submit'
              value='Sign in'

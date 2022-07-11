@@ -11,7 +11,6 @@ export function SearchForm() {
 
   // fetching data
   const setMovie = (movieTitle) => {
-    console.log('search');
     dispatch(fetchMovies(movieTitle))
   }
 
