@@ -11,6 +11,7 @@ export function SearchForm() {
 
   // fetching data
   const setMovie = (movieTitle) => {
+    console.log('search');
     dispatch(fetchMovies(movieTitle))
   }
 
@@ -23,9 +24,9 @@ export function SearchForm() {
     localStorage.setItem('lastSearch', movieTitle)
     localStorage.setItem('currentPage', 1)
     e.preventDefault()
-    e.blur()
     setMovie(localStorage.getItem('lastSearch'))
     setMovieTitle('')
+    e.target.blur()
   }
 
   return (
