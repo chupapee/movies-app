@@ -84,4 +84,7 @@
   .Authform .formBtn {
     font-size: .7em;
   }
+  .modalContent {
+    width: 100%;
+  }
 }
