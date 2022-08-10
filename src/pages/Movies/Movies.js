@@ -15,10 +15,39 @@ export function Movies() {
   let movies = useSelector((state) => state.movies.movies);
   const isLoading = useSelector((state) => state.movies.isLoading);
 
+
+  const getDirection = () => {
+    let windowWidth = window.innerWidth;
+    let direction = windowWidth <= 500 ? 'vertical' : 'horizontal';
+
+    return direction;
+  }
+  const handleResize = (Swiper) => {
+    Swiper.changeDirection(getDirection())
+  }
   return (
     <>
       <div className="swiperWrap">
         <Swiper
+          breakpoints={{
+            850: {
+              slidesPerView: 4
+            },
+            650: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+
+            550: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            0: {
+              allowTouchMove: true,
+              mousewheel: true,
+              slidesPerView: 1,
+            }
+          }}
           slidesPerView={4}
           spaceBetween={30}
           pagination={{
@@ -26,6 +55,7 @@ export function Movies() {
           }}
           modules={[Pagination]}
           className="mySwiper"
+          onResize={Swiper => handleResize(Swiper)}
         >
           {isLoading ? (
             <Preloader />

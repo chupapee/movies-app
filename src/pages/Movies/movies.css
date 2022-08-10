@@ -10,3 +10,12 @@
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
   bottom: -10px;
 }
+
+@media screen and (max-width: 550px) {
+  .movieWrapper {
+    height: 100%;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    opacity: 0;
+  }
+}
