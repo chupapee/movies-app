@@ -31,8 +31,6 @@ export const fetchInfo = createAsyncThunk(
 const initialState = {
   movies: [],
   movieDetails: [],
-  currentPage: 1,
-  pages: [],
   isLoading: false,
   error: ''
 }
@@ -41,14 +39,6 @@ export const movieSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    setCurrentPage: (state, action) => {
-      try {
-        state.currentPage = Number(localStorage.getItem("currentPage"))
-        state.isLoading = false
-      } catch (e) {
-        state.currentPage = action.payload
-      }
-    },
     setMovieDetails: (state, action) => {
       state.movieDetails = action.payload
     },
@@ -57,27 +47,19 @@ export const movieSlice = createSlice({
     builder
       .addCase(fetchMovies.pending, state => {
         state.isLoading = true
-        state.pages = []
         state.error = ''
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.isLoading = false
         state.movies = action.payload
-        state.pages = []
-        state.currentPage = Number(localStorage.getItem("currentPage")) || 1
-        for(let i = 1; i <= (Math.ceil(action.payload.length / 8)); i++){
-          state.pages.push(i)
-        }
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.error = action.payload
         state.isLoading = false
-        state.pages = []
       })
 
       .addCase(fetchInfo.pending, (state, action) => {
         state.isLoading = true
-        state.pages = []
         state.error = ''
       })
       .addCase(fetchInfo.fulfilled, (state, {payload}) => {
