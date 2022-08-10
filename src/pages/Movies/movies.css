@@ -21,6 +21,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .swiper-pagination{
+    display: none;
+  }
+  .mySwiper {
+    margin: 10px 0 0;
+  }
   .movieWrapper {
     height: 100%;
   }

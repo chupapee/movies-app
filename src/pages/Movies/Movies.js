@@ -29,6 +29,7 @@ export function Movies() {
     <>
       <div className="swiperWrap">
         <Swiper
+          onClick={() => console.log('clicked')}
           breakpoints={{
             850: {
               slidesPerView: 4
@@ -46,6 +47,9 @@ export function Movies() {
               allowTouchMove: true,
               mousewheel: true,
               slidesPerView: 1,
+              pagination: {
+                modifierClass: true,
+              }
             }
           }}
           slidesPerView={4}
