@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux/es/exports';
 import { Modal } from '../../widgets/Modal/Modal'
 import { Auth } from "../Auth/Auth";
 import { useEffect } from 'react';
+import { Preloader } from '../../widgets/Preloader/Preloader';
 
 export function HomePage() {
 

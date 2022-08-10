@@ -4,6 +4,7 @@ import { MovieDetails } from '../MovieDetails/MovieDetails';
 import { HomePage } from '../HomePage/HomePage'
 import { Header } from "../../widgets/Header/Header";
 import { useSelector } from 'react-redux/es/exports';
+import { Preloader } from '../../widgets/Preloader/Preloader';
 
 export function Routing() {
   const link = useSelector(state => state.movies.movieDetails.imdbID)
