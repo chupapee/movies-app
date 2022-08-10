@@ -1,4 +1,5 @@
 .movieWrapper {
+  height: 90%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -13,7 +14,7 @@
 
 .linkWrap {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 70px);
 }
 
 .posterWrapper {
@@ -68,7 +69,7 @@
 
 .moviesIconsWrap {
   width: 100%;
-  height: 4em;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;

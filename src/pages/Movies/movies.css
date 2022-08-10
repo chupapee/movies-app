@@ -1,0 +1,12 @@
+.swiperWrap {
+  padding: 0 5%;
+}
+
+.mySwiper {
+  height: 70vh;
+  margin: 15px;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: -10px;
+}

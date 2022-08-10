@@ -33,11 +33,10 @@ export function HomePage() {
       <div className='contentWrapper'>
         <SearchForm />
           {error.length > 0 ? <div className='error'>{error}</div>
-          : <div className='content'>
+          : 
               <Movies />
-            </div>
+            // </div>
           }
-        <Pagination />
         </div>
     </>
   )

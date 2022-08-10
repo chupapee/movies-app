@@ -1,36 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { MovieInfo } from '../../widgets/MovieInfo/MovieInfo'
-import { Preloader } from '../../widgets/Preloader/Preloader';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { MovieInfo } from "../../widgets/MovieInfo/MovieInfo";
+import { Preloader } from "../../widgets/Preloader/Preloader";
+import "./movies.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+// import swiper module
+import { Pagination, Navigation } from "swiper";
 
 export function Movies() {
-
-  let movies = useSelector(state => state.movies.movies)
-  const currentPage = useSelector(state => state.movies.currentPage) 
-  
-  //  array created for pagination
-  const [devidedMovies, setDevidedMovies] = useState([])
-
-  // function taking 8 array elements
-  const devideArray = (arr, index) => arr.splice((index - 1) * 8, 8)
-
-  // take 4 store movies items
-  const devideMovies = () => {
-    setDevidedMovies(devideArray([...movies], currentPage))
-  }
-
-  useEffect(() => {
-    devideMovies()
-  }, [movies, currentPage])
-
-  const isLoading = useSelector(state => state.movies.isLoading)
+  let movies = useSelector((state) => state.movies.movies);
+  const isLoading = useSelector((state) => state.movies.isLoading);
 
   return (
     <>
-      { isLoading ? <Preloader />
-      : devidedMovies.map((movie, index) => (
-        <MovieInfo key={index} info={movie}>{movies[index].Title}</MovieInfo>
-      ))}
+      <div className="swiperWrap">
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {isLoading ? (
+            <Preloader />
+          ) : (
+            movies.map((movie, index) => (
+              <SwiperSlide key={index}>
+                <MovieInfo key={index} info={movie}>
+                  {movies[index].Title}
+                </MovieInfo>
+              </SwiperSlide>
+            ))
+          )}
+        </Swiper>
+      </div>
     </>
-  )
+  );
 }
