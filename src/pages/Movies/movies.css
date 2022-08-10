@@ -15,7 +15,19 @@
   .movieWrapper {
     height: 100%;
   }
+  .swiperWrap {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movieWrapper {
+    height: 100%;
+  }
   .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
     opacity: 0;
+  }
+  .swiperWrap {
+    padding: 0;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { MovieInfo } from "../../widgets/MovieInfo/MovieInfo";
 import { Preloader } from "../../widgets/Preloader/Preloader";
@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import swiper module
-import { Pagination, Navigation } from "swiper";
+import { Pagination } from "swiper";
 
 export function Movies() {
   let movies = useSelector((state) => state.movies.movies);
@@ -38,7 +38,7 @@ export function Movies() {
               spaceBetween: 20
             },
 
-            550: {
+            500: {
               slidesPerView: 2,
               spaceBetween: 10
             },

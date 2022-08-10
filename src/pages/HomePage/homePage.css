@@ -84,7 +84,7 @@ body {
   }
 }
 
-@media screen and (max-width: 530px){
+@media screen and (max-width: 550px){
   .searchForm {
     padding: 1em 0;
   }
