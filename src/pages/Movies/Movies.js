@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import swiper module
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 
 export function Movies() {
   let movies = useSelector((state) => state.movies.movies);
@@ -29,7 +29,11 @@ export function Movies() {
     <>
       <div className="swiperWrap">
         <Swiper
-          onClick={() => console.log('clicked')}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          slidesPerGroup={2}
           breakpoints={{
             850: {
               slidesPerView: 4
@@ -57,7 +61,7 @@ export function Movies() {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
           onResize={Swiper => handleResize(Swiper)}
         >
@@ -65,7 +69,7 @@ export function Movies() {
             <Preloader />
           ) : (
             movies.map((movie, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide className="swiperSlide" key={index}>
                 <MovieInfo key={index} info={movie}>
                   {movies[index].Title}
                 </MovieInfo>
