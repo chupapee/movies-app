@@ -15,7 +15,6 @@ export function Movies() {
   let movies = useSelector((state) => state.movies.movies);
   const isLoading = useSelector((state) => state.movies.isLoading);
 
-
   const getDirection = () => {
     let windowWidth = window.innerWidth;
     let direction = windowWidth <= 500 ? 'vertical' : 'horizontal';
@@ -69,7 +68,7 @@ export function Movies() {
             <Preloader />
           ) : (
             movies.map((movie, index) => (
-              <SwiperSlide className="swiperSlide" key={index}>
+              <SwiperSlide key={index}>
                 <MovieInfo key={index} info={movie}>
                   {movies[index].Title}
                 </MovieInfo>
