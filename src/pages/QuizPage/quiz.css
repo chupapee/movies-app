@@ -1,6 +1,9 @@
 .quizWrap {
+  animation: countdown 9s linear infinite;
   width: 100%;
-  height: calc(100vh - 100px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
   padding: 15px;
   background-color: rgb(133, 131, 131);
   display: flex;
@@ -28,7 +31,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 30px 100px;
-  transform: scale(1);
+  transform: rotate(360deg) scale(1);
 }
 
 .animation {
@@ -45,10 +48,39 @@
   background-color: transparent;
   color: white;
   border-radius: 30px;
-  transition: background-color .1s linear;
+  transition: all .2s linear;
 }
 
 .quizBtn:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.384);
+}
+
+@keyframes countdown {
+  0% {
+    background: hsl(0,100%,20%);
+  }
+  20% {
+    counter-increment: my-count -1;
+    background: hsl(90,100%,20%);
+  }
+  40% {
+    counter-increment: my-count -2;
+    background: hsl(180,100%,20%);
+  }
+  60% {
+    counter-increment: my-count -3;
+    background: hsl(270,100%,20%);
+  }
+  80% {
+    counter-increment: my-count -4;
+    background: hsl(360,100%,20%);
+  }
+  100% {
+    background: hsl(0,100%,20%);
+  }
+}
+
+.timer {
+  font-size: 3em;
 }

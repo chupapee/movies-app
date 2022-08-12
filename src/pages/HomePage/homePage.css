@@ -26,9 +26,8 @@ body {
 .wrapper {
   min-width: 100%;
   min-height: 100vh;
-  padding-top: 75px;
+  padding-top: 50px;
   position: relative;
-  /* background: linear-gradient(#642b8e, black); */
   color: white;
 }
 

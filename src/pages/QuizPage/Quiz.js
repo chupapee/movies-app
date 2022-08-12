@@ -19,30 +19,47 @@ export const Quiz = () => {
   const getNextQuiz = () => {
     setCountQuiz(countQuiz + 1);
     dispatch(nextQuiz(countQuiz));
-    setTimeout(() => setAnimation(false), 500)
+    setTimeout(() => setAnimation(false), 500);
   };
 
   const [isGuessed, setIsGuessed] = useState(false);
-  const [animation, setAnimation] = useState(false)
+  const [animation, setAnimation] = useState(false);
   const checkAnswer = (answer) => {
     setIsGuessed(answer === quiz.answer);
-    setAnimation(true)
-    setTimeout(getNextQuiz, 1000)
+    setAnimation(true);
+    setTimeout(getNextQuiz, 1000);
   };
+
+  const tick = () => {
+    if(timer === 0) return
+    setTimer(timer - 1)
+  }
+
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  });
+
+  const [timer, setTimer] = useState(5);
 
   return (
     <>
       <div className="quizWrap">
+        <div className="quizTimer">
+          <span>{timer}</span>
+        </div>
         <div className="quizStatus">
           {isGuessed ? <p>win</p> : <p>failed</p>}
         </div>
-        <div className={`quizQuestion ${animation && 'animation'}`}>
+        <div className={`quizQuestion ${animation && "animation"}`}>
           <p>{quiz.question}</p>
         </div>
-        <div className={`quizOptions ${animation && 'animation'}`}>
+        <div className={`quizOptions ${animation && "animation"}`}>
           {quiz.options &&
             quiz.options.map((value) => (
-              <button className="quizBtn" onClick={() => checkAnswer(value)}>{value}</button>
+              <button className="quizBtn" onClick={() => checkAnswer(value)}>
+                {value}
+              </button>
             ))}
         </div>
       </div>
