@@ -18,23 +18,29 @@ export const getQuizList = createAsyncThunk(
 
 const initialState = {
   quizList: [],
+  currentQuiz: {},
   isLoading: false,
-  isError: false
+  isError: false,
 }
 
 export const quizSlice = createSlice({
   name: 'quiz',
   initialState,
-  reducers: {},
+  reducers: {
+    nextQuiz: (state, {payload}) => {
+      state.currentQuiz = state.quizList[payload]
+    }
+  },
   extraReducers: builder => {
     builder
     .addCase(getQuizList.pending, state => {
       state.quizList = []
       state.isLoading = true
     })
-    .addCase(getQuizList.fulfilled, (state, action) => {
+    .addCase(getQuizList.fulfilled, (state, { payload }) => {
       state.isLoading = false
-      state.quizList = action.payload
+      state.quizList = payload
+      state.currentQuiz = payload[0]
     })
     .addCase(getQuizList.rejected, (state, action) => {
       state.isLoading = false
@@ -42,3 +48,5 @@ export const quizSlice = createSlice({
     })
   }
 })
+
+export const { nextQuiz } = quizSlice.actions

@@ -43,10 +43,12 @@ export function Movies() {
             },
 
             500: {
+              slidesPerGroup: 1,
               slidesPerView: 2,
               spaceBetween: 10
             },
             0: {
+              slidesPerGroup: 1,
               allowTouchMove: true,
               mousewheel: true,
               slidesPerView: 1,

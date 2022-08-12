@@ -16,7 +16,7 @@ export function Routing() {
         <Routes>
           <Route path='/*' element={<HomePage />}/>
           <Route path={URL} element={<MovieDetails />}/>
-          <Route path='/quiz' element={<Quiz />}/>
+          <Route path='/movies_app/quiz' element={<Quiz />}/>
         </Routes>
       </div>
     </BrowserRouter>

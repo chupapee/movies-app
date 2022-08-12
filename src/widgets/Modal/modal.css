@@ -32,7 +32,6 @@
 
   display: flex;
   justify-content: center;
-  /* padding-top: 13%; */
 }
 
 .modalWrap.active {
@@ -42,7 +41,8 @@
 }
 
 .modalFinished {
-  transition: .2s linear;
-  transform: translateX(-100%);
+  visibility: hidden;
+  transition: .9s linear;
+  transform: translate3d(-100%);
   background-color: transparent;
 }
