@@ -49,6 +49,14 @@
   gap: 10px;
 }
 
+.error {
+  height: 60vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 3em;
+}
+
 @media screen and (max-width: 1020px) {
   .movieDetailsInfo {
     width: 100%;

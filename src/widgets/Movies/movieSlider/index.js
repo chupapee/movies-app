@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -7,11 +7,15 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
 import { Preloader } from "../../Preloader/Preloader";
 import { MovieInfo } from "../MovieInfo/MovieInfo";
-import s from './style.module.css'
+import s from "./style.module.css";
+import { NavLink } from "react-router-dom";
+import { fetchInfo } from "../../../redux/slices.js/moviesSlice";
+import { CONTENT_DETAILS_ROUTE } from "../../../app/routing/utils/consts";
 
 export const MovieSlider = () => {
   const isLoading = useSelector((state) => state.movies.isLoading);
   const movies = useSelector((state) => state.movies.movies);
+  const dispatch = useDispatch();
 
   const getDirection = () => {
     let windowWidth = window.innerWidth;
@@ -21,6 +25,9 @@ export const MovieSlider = () => {
   const handleResize = (Swiper) => {
     Swiper.changeDirection(getDirection());
   };
+  function chooseMovie(title){
+    dispatch(fetchInfo(title))
+  }
 
   return (
     <>
@@ -68,9 +75,11 @@ export const MovieSlider = () => {
         ) : (
           movies.map((movie, index) => (
             <SwiperSlide key={index}>
-              <MovieInfo key={index} info={movie}>
-                {movies[index].Title}
-              </MovieInfo>
+              <NavLink to={CONTENT_DETAILS_ROUTE} onClick={() => chooseMovie(movie.Title)}>
+                <MovieInfo key={index} info={movie}>
+                  {movies[index].Title}
+                </MovieInfo>
+              </NavLink>
             </SwiperSlide>
           ))
         )}

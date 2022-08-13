@@ -38,11 +38,7 @@ const initialState = {
 export const movieSlice = createSlice({
   name: 'movies',
   initialState,
-  reducers: {
-    setMovieDetails: (state, action) => {
-      state.movieDetails = action.payload
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchMovies.pending, state => {

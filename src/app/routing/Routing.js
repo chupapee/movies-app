@@ -1,15 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux/es/exports";
-import { MovieDetails } from "../../pages/MovieDetails/MovieDetails";
-import { HomePage } from "../../pages/HomePage/HomePage";
 import { Header } from "../../widgets/Header/Header";
-import { Quiz } from "../../pages/QuizPage/Quiz";
 import s from "./routing.module.css";
+import { privateRoutes } from "./utils/routes";
+import { publicRoutes } from "./utils/routes";
 
 export function Routing() {
-  const link = useSelector((state) => state.movies.movieDetails.imdbID);
-  const URL = `/${link}`;
   const loggedIn = localStorage.getItem("email");
   return (
     <BrowserRouter>
@@ -18,12 +14,20 @@ export function Routing() {
         <Routes>
           {loggedIn ? (
             <>
-              <Route path="/*" element={<HomePage />} />
-              <Route path="/movies_app/quiz" element={<Quiz />} />
-              <Route path={URL} element={<MovieDetails />} />
+              {privateRoutes.map(({ path, Component }) => (
+                <>
+                  <Route path={path} element={<Component />} key={path} />
+                </>
+              ))}
             </>
           ) : (
-            <Route path="/*" element={<HomePage />} />
+            <>
+              {publicRoutes.map(({ path, Component }) => (
+                <>
+                  <Route path={path} element={<Component />} key={path} />
+                </>
+              ))}
+            </>
           )}
         </Routes>
       </div>

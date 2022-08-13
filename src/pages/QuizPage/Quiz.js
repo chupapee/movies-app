@@ -59,7 +59,7 @@ export const Quiz = () => {
         <div className={`${s.quizOptions} ${animation && s.animation}`}>
           {quiz.options &&
             quiz.options.map((value) => (
-              <button className={s.quizBtn} onClick={() => checkAnswer(value)}>
+              <button className={s.quizBtn} onClick={() => checkAnswer(value)} key={value}>
                 {value}
               </button>
             ))}
