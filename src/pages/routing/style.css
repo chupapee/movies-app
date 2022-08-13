@@ -1,0 +1,7 @@
+.mainWrap {
+  min-width: 100%;
+  min-height: 100vh;
+  padding-top: 4em;
+  position: relative;
+  color: white;
+}

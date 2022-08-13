@@ -1,6 +1,7 @@
-.searchForm {
+.searchFormWrap {
+  width: 100%;
+  padding: 15px 0;
   text-align: center;
-  padding: 2em;
 }
 
 .searchInput {
@@ -44,4 +45,13 @@
 .searchIconWrap:hover {
   color: white;
   background-color: rgba(65, 65, 65, 0.59);
+}
+
+@media screen and (max-width: 550px){
+  .searchForm {
+    padding: 1em 0;
+  }
+  .searchInput {
+    width: 100%;
+  }
 }

@@ -17,9 +17,9 @@ export function MovieInfo({info}) {
 
   return (
       <div className='movieWrapper'>
-        <NavLink to={link} onClick={() => chooseMovie(info.Title)} className='linkWrap'>
-          <div className='posterWrapper'>
-            <img className='moviePoster' src={info.Poster} />
+        <NavLink to={link} onClick={() => chooseMovie(info.Title)} className='movieLinkWrap'>
+          <div className='moviePosterWrapper'>
+            <img className='moviePoster' src={info.Poster}alt='poster' />
             <div className='movieTitle'>{info.Title}</div>
             <div className='movieOverlay' />
           </div>

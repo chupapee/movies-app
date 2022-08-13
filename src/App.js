@@ -1,9 +1,7 @@
 import { Routing } from "./pages/routing/Routing";
 
-function App() {
+export const App = () => {
   return (
     <Routing />
   );
 }
-
-export default App;

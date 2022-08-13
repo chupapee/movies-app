@@ -1,21 +1,17 @@
-.swiperWrap {
+.movieListWrap {
   padding: 0 5%;
 }
 
-.mySwiper {
+.movieList {
   height: 70vh;
   margin: 15px;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: -10px;
-}
-
 @media screen and (max-width: 550px) {
-  .movieWrapper {
+  .movieListWrap {
     height: 100%;
   }
-  .swiperWrap {
+  .movieListWrap {
     padding: 0;
   }
 }
@@ -24,7 +20,7 @@
   .swiper-pagination{
     display: none;
   }
-  .mySwiper {
+  .movieList {
     margin: 10px 0 0;
   }
   .movieWrapper {
@@ -33,7 +29,7 @@
   .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
     opacity: 0;
   }
-  .swiperWrap {
+  .movieListWrap {
     padding: 0;
   }
 }

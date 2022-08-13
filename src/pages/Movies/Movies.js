@@ -26,7 +26,7 @@ export function Movies() {
   }
   return (
     <>
-      <div className="swiperWrap">
+      <div className="movieListWrap">
         <Swiper
           autoplay={{
             delay: 2500,
@@ -63,7 +63,7 @@ export function Movies() {
             clickable: true,
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper"
+          className="movieList"
           onResize={Swiper => handleResize(Swiper)}
         >
           {isLoading ? (
