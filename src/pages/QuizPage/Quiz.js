@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuizList, nextQuiz } from "../../redux/slices.js/quizSlice";
+import { BackBtn } from "../../shared/buttons/components/BackBtn";
 import s from "./quiz.module.css";
 
 export const Quiz = () => {
@@ -44,6 +45,7 @@ export const Quiz = () => {
 
   return (
     <>
+      <BackBtn />
       <div className={s.quizWrap}>
         <div className={s.quizTimer}>
           <span>{timer}</span>

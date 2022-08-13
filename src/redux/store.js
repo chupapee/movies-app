@@ -12,9 +12,5 @@ export const store = configureStore({
     movies: moviesReducer,
     auth: authReducer,
     quiz: quizReducer
-  },
-  // middleware: getDefaultMiddleware =>
-  // getDefaultMiddleware({
-  //   serializableCheck: false,
-  // }),
+  }
 })

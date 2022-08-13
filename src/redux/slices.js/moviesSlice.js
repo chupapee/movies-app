@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { searchApi } from '../../service/searchMovieAPI'
 
 export const fetchMovies = createAsyncThunk(
@@ -72,5 +72,3 @@ export const movieSlice = createSlice({
       })
   }
 })
-
-export const { setCurrentPage } = movieSlice.actions

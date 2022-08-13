@@ -1,23 +1,17 @@
 import { useSelector } from "react-redux"
 import s from './movieDetails.module.css'
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Preloader } from "../../widgets/Preloader/Preloader";
-import { useNavigate } from "react-router-dom";
+import { BackBtn } from "../../shared/buttons/components/BackBtn";
 
 export function MovieDetails() {
 
   // whole movie info
   const data = useSelector(state => state.movies.movieDetails)
   const isLoading = useSelector(state => state.movies.isLoading)
-  const navigate = useNavigate()
-
-  const goBack = () => navigate(-1)
 
   return (
     <>
-      <button onClick={goBack} className={s.backBtn}>
-        <ArrowBackIosNewIcon className={s.backIcon} />
-      </button>
+      <BackBtn />
       { isLoading ? <Preloader />
       :<div className={s.mainInfo}> 
         <div className={s.movieDetailsPosterWrap}>
