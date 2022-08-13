@@ -5,6 +5,7 @@
   height: auto;
   padding: 15px;
   font-family: consolas;
+  flex: 60%;
 }
 
 .moviePreDetails {

@@ -1,18 +1,9 @@
 import s from "./style.module.css";
 
 export const Description = ({
-  Title,
-  Year,
-  Rated,
-  DVD,
-  Runtime,
-  Plot,
-  Genre,
-  Director,
-  Actors,
-  Country,
-  Awards,
-}) => {
+    Title, Year, Rated, DVD, Runtime, Plot,
+    Genre, Director, Actors, Country, Awards,
+  }) => {
   return (
     <>
       {Title ? (

@@ -1,12 +1,50 @@
+.moviePosterWrap {
+  position: relative;
+}
+
+.moviePlay {
+  cursor: pointer;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -25px;
+  height: 0;
+  width: 0;
+  border-left: 50px solid purple;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  transition: opacity .1s ease;
+}
+
+.moviePosterWrap:hover .moviePlay {
+  opacity: .7;
+}
+
 .movieDetailsPoster {
-  padding: 15px;
+  cursor: pointer;
+  flex: 50%;
   width: 100%;
   height: 615px;
   object-fit: cover;
 }
 
+.movieFrame {
+  width: 100%;
+  height: 615px;
+  flex: 40%;
+}
+
 @media screen and (max-width: 550px) {
   .movieDetailsPoster {
+    height: 500px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .movieFrame {
     height: 500px;
     padding-bottom: 0;
     padding-left: 0;
