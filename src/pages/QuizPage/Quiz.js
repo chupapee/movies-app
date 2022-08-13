@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuizList, nextQuiz } from "../../redux/slices.js/quizSlice";
-import "./quiz.css";
+import s from "./quiz.module.css";
 
 export const Quiz = () => {
   const quiz = useSelector((state) => state.quiz.currentQuiz);
@@ -44,20 +44,20 @@ export const Quiz = () => {
 
   return (
     <>
-      <div className="quizWrap">
-        <div className="quizTimer">
+      <div className={s.quizWrap}>
+        <div className={s.quizTimer}>
           <span>{timer}</span>
         </div>
-        <div className="quizStatus">
+        <div className={s.quizStatus}>
           {isGuessed ? <p>win</p> : <p>failed</p>}
         </div>
-        <div className={`quizQuestion ${animation && "animation"}`}>
+        <div className={`${s.quizQuestion} ${animation && s.animation}`}>
           <p>{quiz.question}</p>
         </div>
-        <div className={`quizOptions ${animation && "animation"}`}>
+        <div className={`${s.quizOptions} ${animation && s.animation}`}>
           {quiz.options &&
             quiz.options.map((value) => (
-              <button className="quizBtn" onClick={() => checkAnswer(value)}>
+              <button className={s.quizBtn} onClick={() => checkAnswer(value)}>
                 {value}
               </button>
             ))}

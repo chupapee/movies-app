@@ -5,7 +5,7 @@ import { HomePage } from "../HomePage/HomePage";
 import { Header } from "../../widgets/Header/Header";
 import { useSelector } from "react-redux/es/exports";
 import { Quiz } from "../QuizPage/Quiz";
-import "./style.css";
+import s from "./routing.module.css";
 
 export function Routing() {
   const link = useSelector((state) => state.movies.movieDetails.imdbID);
@@ -13,7 +13,7 @@ export function Routing() {
   return (
     <BrowserRouter>
       <Header />
-      <div className="mainWrap">
+      <div className={s.mainWrap}>
         <Routes>
           <Route path="/*" element={<HomePage />} />
           <Route path={URL} element={<MovieDetails />} />

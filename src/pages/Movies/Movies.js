@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { MovieInfo } from "../../widgets/MovieInfo/MovieInfo";
 import { Preloader } from "../../widgets/Preloader/Preloader";
-import "./movies.css";
+import s from "./movies.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -26,7 +26,7 @@ export function Movies() {
   }
   return (
     <>
-      <div className="movieListWrap">
+      <div className={s.movieListWrap}>
         <Swiper
           autoplay={{
             delay: 2500,
@@ -63,7 +63,7 @@ export function Movies() {
             clickable: true,
           }}
           modules={[Pagination, Autoplay]}
-          className="movieList"
+          className={s.movieList}
           onResize={Swiper => handleResize(Swiper)}
         >
           {isLoading ? (

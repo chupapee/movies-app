@@ -1,6 +1,6 @@
 import { Movies } from "../Movies/Movies";
 import { SearchForm } from "../../widgets/SearchForm/SearchForm";
-import "./homePage.css";
+import s from "./homePage.module.css";
 import { useSelector } from "react-redux/es/exports";
 import { Modal } from "../../widgets/Modal/Modal";
 import { Auth } from "../Auth/Auth";
@@ -18,9 +18,9 @@ export function HomePage() {
       <Modal {...params}>
         <Auth />
       </Modal>
-      <div className="contentWrapper">
+      <div className={s.contentWrapper}>
         <SearchForm />
-        {error.length > 0 ? <div className="error">{error}</div> : <Movies />}
+        {error.length > 0 ? <div className={s.error}>{error}</div> : <Movies />}
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './auth.css'
+import s from './auth.module.css'
 import { checkEmail } from "../../redux/slices.js/authSlice";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -27,8 +27,8 @@ export function Auth() {
 
   return (
     <>
-    <h1 className='authHeader'>W E L C O M E</h1>
-    <form onSubmit={formHandler} className='Authform' autoComplete='off'>
+    <h1 className={s.authHeader}>W E L C O M E</h1>
+    <form onSubmit={formHandler} className={s.authform} autoComplete='off'>
       {!isValid && <p>Please, enter a valid email address</p>}
       <input name='login' type="text" placeholder='Login'
              onChange={e => {
@@ -58,7 +58,7 @@ export function Auth() {
       />
       <input type='submit'
              value='Sign in'
-             className='formBtn'
+             className={s.formBtn}
              disabled={checking}
       />
     </form>

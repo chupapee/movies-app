@@ -1,4 +1,4 @@
-.Authform {
+.authform {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.Authform input {
+.authform input {
   background: transparent;
   width: 400px;
   padding: 1em;
@@ -31,60 +31,49 @@
   transition: all 0.2s ease-in-out;
 }
 
-.Authform input:hover,
-.Authform input:focus {
+.authform input:hover,
+.authform input:focus {
   background: rgba(255,255,255,0.1);
   box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
 }
 
-.Authform .formBtn {
+.authform .formBtn {
   width: 150px;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.Authform .formBtn:active {
+.authform .formBtn:active {
   background: rgba(255,255,255,0.2);
 }
 
 @media screen and (max-width: 770px) {
-  .modalContent {
-    height: 350px;
-    padding: 1.5em;
-  }
   .authHeader {
     padding: 15px 0;
   }
-  .Authform {
+  .authform {
     width: auto;
   }
-  .Authform input {
+  .authform input {
     width: 350px;
     margin-bottom: 0;
   }
-  .Authform .formBtn {
+  .authform .formBtn {
     font-size: .8rem;
   }
 }
 
-@media screen and (max-width: 440px) {
-  .modalWrap {
-    padding-top: 25%;
-  }
-  
+@media screen and (max-width: 440px) {  
   .authHeader {
     font-size: 1.5em;
   }
 
-  .Authform input {
+  .authform input {
     width: 100%;
     padding: .7em;
   }
 
-  .Authform .formBtn {
+  .authform .formBtn {
     font-size: .7em;
-  }
-  .modalContent {
-    width: 100%;
   }
 }

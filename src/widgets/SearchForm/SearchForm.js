@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchMovies } from "../../redux/slices.js/moviesSlice";
-import "./searchForm.css";
 import SearchIcon from "@mui/icons-material/Search";
+
+import { fetchMovies } from "../../redux/slices.js/moviesSlice";
+import s from "./searchForm.module.css";
 
 export function SearchForm() {
   const [movieTitle, setMovieTitle] = useState("");
@@ -28,20 +29,20 @@ export function SearchForm() {
   };
 
   return (
-    <div className="searchFormWrap">
+    <div className={s.searchFormWrap}>
       <form onSubmit={findMovie}>
         <input
           type="text"
-          className="searchInput"
+          className={s.searchInput}
           onChange={(e) => setMovieTitle(e.target.value)}
           value={movieTitle}
           placeholder="Search for a movie..."
           minLength="1"
           required
         ></input>
-        <button className="searchBtn">
-          <div className="searchIconWrap">
-            <SearchIcon className="searchIcon" />
+        <button className={s.searchBtn}>
+          <div className={s.searchIconWrap}>
+            <SearchIcon className={s.searchIcon} />
           </div>
         </button>
       </form>
