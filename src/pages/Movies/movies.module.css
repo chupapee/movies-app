@@ -2,33 +2,14 @@
   padding: 0 5%;
 }
 
-.movieList {
-  height: 70vh;
-  margin: 15px;
-}
-
 @media screen and (max-width: 550px) {
   .movieListWrap {
     height: 100%;
-  }
-  .movieListWrap {
     padding: 0;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .swiper-pagination{
-    display: none;
-  }
-  .movieList {
-    margin: 10px 0 0;
-  }
-  .movieWrapper {
-    height: 100%;
-  }
-  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-    opacity: 0;
-  }
   .movieListWrap {
     padding: 0;
   }

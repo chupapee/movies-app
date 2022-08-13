@@ -1,4 +1,4 @@
-import { Routing } from "./pages/routing/Routing";
+import { Routing } from "./routing/Routing";
 
 export const App = () => {
   return (

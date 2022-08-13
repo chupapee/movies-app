@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MovieDetails } from "../MovieDetails/MovieDetails";
-import { HomePage } from "../HomePage/HomePage";
-import { Header } from "../../widgets/Header/Header";
 import { useSelector } from "react-redux/es/exports";
-import { Quiz } from "../QuizPage/Quiz";
+import { MovieDetails } from "../../pages/MovieDetails/MovieDetails";
+import { HomePage } from "../../pages/HomePage/HomePage";
+import { Header } from "../../widgets/Header/Header";
+import { Quiz } from "../../pages/QuizPage/Quiz";
 import s from "./routing.module.css";
 
 export function Routing() {

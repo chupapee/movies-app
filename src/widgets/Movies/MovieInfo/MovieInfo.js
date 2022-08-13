@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
-import { fetchInfo } from '../../redux/slices.js/moviesSlice';
+import { fetchInfo } from '../../../redux/slices.js/moviesSlice';
 import s from './movieInfo.module.css'
 
 export function MovieInfo({info}) {

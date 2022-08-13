@@ -52,7 +52,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(0deg,#000,transparent);
+  background: linear-gradient(0deg, #000, transparent);
 }
 
 .movieOverlay {
@@ -101,7 +101,13 @@
   cursor: pointer;
 }
 
-.movieLikeWrap:hover{
+.movieLikeWrap:hover {
   background-color: rgba(65, 65, 65, 0.59);
   border-radius: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .movieWrapper {
+    height: 100%;
+  }
 }
