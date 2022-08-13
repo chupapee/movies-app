@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import swiper module
-import { Pagination, Autoplay } from "swiper";
+import { Pagination, Autoplay, Mousewheel } from "swiper";
 import { Preloader } from "../../Preloader/Preloader";
 import { MovieInfo } from "../MovieInfo/MovieInfo";
 import s from "./style.module.css";
@@ -32,9 +32,10 @@ export const MovieSlider = () => {
   return (
     <>
       <Swiper
+        mousewheel={true}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         slidesPerGroup={2}
         breakpoints={{
@@ -66,7 +67,7 @@ export const MovieSlider = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, Autoplay, Mousewheel]}
         onResize={(Swiper) => handleResize(Swiper)}
         className={s.movieList}
       >
