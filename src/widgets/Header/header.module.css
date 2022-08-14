@@ -1,12 +1,12 @@
 .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   position: fixed;
   z-index: 9;
   width: 100%;
   height: 4em;
-  justify-content: space-between;
-  align-items: center;
   color: aliceblue;
   background-color: black;
   padding: 10px 30px;
@@ -23,6 +23,7 @@
   display: flex;
   padding: 0 5px;
   list-style: none;
+  transition: all .1s ease;
 }
 
 .navItem {
@@ -45,4 +46,34 @@
   text-decoration: none;
   color: #f2ddff;
   transition: .2s ease;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  transition: .2s ease;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.burger:hover {
+  box-shadow: 0px 0px 5px 5px yellow;
+}
+
+@media screen and (max-width: 550px) {
+  .burger {
+    display: flex;
+  }
+  .navList {
+    display: none;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
+
+.showNav {
+  display: flex;
+  transition: all ease .1s;
 }
