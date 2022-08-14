@@ -10,10 +10,38 @@
   color: aliceblue;
   background-color: black;
   padding: 10px 30px;
+  padding-right: 0;
   color: #f2ddff;
 }
 
 .headerIcon {
   width: 4em;
   cursor: pointer;
+}
+
+.navList {
+  display: flex;
+  padding: 0 5px;
+  list-style: none;
+}
+
+.navItem {
+  padding: 5px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all .2s ease-in;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navItem:hover {
+  color: black;
+  background-color: yellow;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #f2ddff;
+  transition: .2s ease;
 }

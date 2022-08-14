@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .quizContent {
@@ -39,7 +40,6 @@
 }
 
 .quizQuestion {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 2em 0;
   border: 3px solid rgba(185, 255, 73, 0.486);
   border-radius: 50px;
@@ -68,7 +68,6 @@
 }
 
 .quizBtn {
-  font-family: consolas;
   padding: 1.1em;
   font-size: 1.1em;
   cursor: pointer;

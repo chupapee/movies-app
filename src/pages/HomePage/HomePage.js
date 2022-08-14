@@ -4,6 +4,7 @@ import s from "./homePage.module.css";
 import { useSelector } from "react-redux/es/exports";
 import { Modal } from "../../widgets/Modal/Modal";
 import { Auth } from "../Auth/Auth";
+import { NavLink } from "react-router-dom";
 
 export function HomePage() {
   const error = useSelector((state) => state.movies.error);
