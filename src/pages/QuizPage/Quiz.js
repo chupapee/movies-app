@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getQuizList, nextQuiz } from "../../redux/slices.js/quizSlice";
+import { getQuizList, nextQuiz, setTotalGuessed } from "../../redux/slices.js/quizSlice";
 import { BackBtn } from "../../shared/buttons/components/BackBtn";
 import s from "./quiz.module.css";
 import { Preloader } from '../../widgets/Preloader/Preloader'
@@ -10,31 +10,37 @@ export const Quiz = () => {
   const quiz = useSelector((state) => state.quiz.currentQuiz);
   const isLoading = useSelector((state) => state.quiz.isLoading);
   const dispatch = useDispatch();
+  
+  const [guessedCount, SetGuessedCount] = useState(0);
+  const [attemptCount, SetAttemptCount] = useState(5);
+  const [countQuiz, setCountQuiz] = useState(1);
+  const [over, setOver] = useState(false);
+  const oldTotal = localStorage.getItem('totalGuessed')
+
+  const [animation, setAnimation] = useState(false);
 
   const getQuiz = () => {
     dispatch(getQuizList());
   };
   useEffect(() => {
     getQuiz();
+    if(!oldTotal) localStorage.setItem('totalGuessed', 0)
   }, []);
 
-  const [countQuiz, setCountQuiz] = useState(1);
-
-  const [over, setOver] = useState(false);
   const getNextQuiz = () => {
     if (attemptCount === 1) {
       SetAttemptCount(0);
       setOver(true);
+      if(guessedCount > oldTotal) {
+        dispatch(setTotalGuessed(guessedCount))
+        localStorage.setItem('totalGuessed', guessedCount)
+      }
       return;
     }
     setCountQuiz(countQuiz + 1);
     dispatch(nextQuiz(countQuiz));
     setTimeout(() => setAnimation(false), 500);
   };
-
-  const [guessedCount, SetGuessedCount] = useState(0);
-  const [attemptCount, SetAttemptCount] = useState(5);
-  const [animation, setAnimation] = useState(false);
 
   const checkAnswer = (answer) => {
     if (answer === quiz.answer) SetGuessedCount(guessedCount + 1);
@@ -45,7 +51,7 @@ export const Quiz = () => {
 
   return (
     <>
-      <BackBtn />
+      <BackBtn/>
       <div className={s.quizWrap}>
         <div className={s.quizStatus}>
           {!over && (

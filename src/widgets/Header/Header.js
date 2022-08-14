@@ -20,7 +20,7 @@ export function Header() {
       <nav className={s.nav}>
         <ul className={s.navList}>
           {navList.map(({ value, path }) => (
-            <li>
+            <li key={value}>
               <NavLink className={s.navItem} to={path}>
                 {value}
               </NavLink>

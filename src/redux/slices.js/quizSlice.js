@@ -21,6 +21,7 @@ const initialState = {
   currentQuiz: {},
   isLoading: false,
   isError: false,
+  totalGuessed: 0
 }
 
 export const quizSlice = createSlice({
@@ -29,6 +30,9 @@ export const quizSlice = createSlice({
   reducers: {
     nextQuiz: (state, {payload}) => {
       state.currentQuiz = state.quizList[payload]
+    },
+    setTotalGuessed: (state, action) => {
+      state.totalGuessed = action.payload
     }
   },
   extraReducers: builder => {
@@ -49,4 +53,4 @@ export const quizSlice = createSlice({
   }
 })
 
-export const { nextQuiz } = quizSlice.actions
+export const { nextQuiz, setTotalGuessed } = quizSlice.actions
