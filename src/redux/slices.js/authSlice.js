@@ -10,7 +10,7 @@ export const checkEmail = createAsyncThunk(
     if(isValid) {
       localStorage.setItem('email', email)
       localStorage.setItem('login', login)
-      return login
+      return [email, login]
     }
     throw new Error('invalid email')
   } catch (e) {
@@ -21,6 +21,7 @@ export const checkEmail = createAsyncThunk(
 
 const initialState = {
   login: '',
+  email: '',
   isValid: true,
   checking: false,
   checked: false
@@ -29,15 +30,20 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'email',
   initialState,
-  reducers: {},
+  reducers: {
+    setLogin: (state, { payload }) => {
+      state.login = payload.length > 0 ? payload : state.login
+    }
+  },
   extraReducers: builder => {
     builder
     .addCase(checkEmail.pending, state => {
       state.checking = true
     })
-    .addCase(checkEmail.fulfilled, (state, action) => {
+    .addCase(checkEmail.fulfilled, (state, {payload}) => {
       state.isValid = true
-      state.login = action.payload
+      state.email = payload[0]  // email
+      state.login = payload[1]  // login
       state.checked = true
       state.checking = false
     })
@@ -47,3 +53,5 @@ export const authSlice = createSlice({
     })
   }
 })
+
+export const { setLogin } = authSlice.actions
