@@ -35,6 +35,7 @@ export function Header() {
       <div className={s.headerIcon}>
         <img src={profileIcon} alt="profile-icon" />
       </div>
+      <p className={s.login}>{login}</p>
       <div>
         <div onClick={openNav} className={s.burger}>
           <MenuIcon />
