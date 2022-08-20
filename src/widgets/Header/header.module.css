@@ -79,7 +79,7 @@
       position: relative;
     }
     .navList {
-      transform: translateY(-200%);
+      transform: translateY(calc(-100% - 4em));
       position: absolute;
       right: 0;
       left: 0;

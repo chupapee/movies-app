@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import s from "./header.module.css";
@@ -18,12 +18,15 @@ export function Header() {
   const navRef = useRef(null);
   function openNav() {
     setIsOpened(!isOpened);
+  }
+
+  useEffect(() => {
     if (isOpened) {
       navRef.current.className = `${s.navList} ${s.showNav}`;
     } else {
       navRef.current.className = s.navList;
     }
-  }
+  }, [isOpened])
 
   function handleNavClick() {
     openNav();
