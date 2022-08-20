@@ -33,7 +33,6 @@ export const Quiz = () => {
       setOver(true);
       if(guessedCount > oldTotal) {
         dispatch(setTotalGuessed(guessedCount))
-        localStorage.setItem('totalGuessed', guessedCount)
       }
       return;
     }

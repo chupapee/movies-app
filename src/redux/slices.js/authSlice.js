@@ -20,9 +20,9 @@ export const checkEmail = createAsyncThunk(
 )
 
 const initialState = {
-  login: '',
-  email: '',
-  img: 'https://i.pinimg.com/originals/4e/cf/79/4ecf790f743f93ca68604083e44790e8.gif',
+  login: localStorage.getItem('login'),
+  email: localStorage.getItem('email'),
+  img: localStorage.getItem('icon') || 'https://c.tenor.com/SLT0MF-wqRgAAAAC/laughing-leonardo-dicaprio.gif',
   isValid: true,
   checking: false,
   checked: false
@@ -37,6 +37,7 @@ export const authSlice = createSlice({
     },
     setImg: (state, action) => {
       state.img = action.payload
+      localStorage.setItem('icon', action.payload)
     }
   },
   extraReducers: builder => {

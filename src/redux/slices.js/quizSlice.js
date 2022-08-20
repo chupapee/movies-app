@@ -33,6 +33,7 @@ export const quizSlice = createSlice({
     },
     setTotalGuessed: (state, action) => {
       state.totalGuessed = action.payload
+      localStorage.setItem('totalGuessed', action.payload)
     }
   },
   extraReducers: builder => {

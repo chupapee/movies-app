@@ -43,7 +43,7 @@ export function Auth() {
           required
           minLength="3"
           maxLength="20"
-          title="enter symbols less than 15"
+          title="type symbols less than 15"
         />
         <input
           name="email"
@@ -62,8 +62,8 @@ export function Auth() {
           name="password"
           type="password"
           placeholder="Password"
-          minLength="10"
-          title="password must contain 10 characters at least"
+          minLength="8"
+          title="password must contain 8 characters at least"
           required
         />
         <input

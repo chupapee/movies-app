@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setImg, setLogin } from "../../redux/slices.js/authSlice";
 import s from "./style.module.css";
-import { BackBtn } from '../../shared/buttons/components/BackBtn'
+import { BackBtn } from "../../shared/buttons/components/BackBtn";
 
 export const Profile = () => {
   const login = useSelector((state) => state.auth.login);
@@ -78,6 +78,9 @@ export const Profile = () => {
                   type="text"
                   value={loginValue}
                   disabled={disabled}
+                  maxLength="20"
+                  minLength="1"
+                  title="no more than 20 characters"
                 />
               </label>
               <div className={s.btnsWrap}>

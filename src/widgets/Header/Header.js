@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import s from "./header.module.css";
-import { getNavlist } from "./nav";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useRef } from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import s from "./header.module.css";
+import { getNavlist } from "./nav";
 
 export function Header() {
   const profileIcon = useSelector((state) => state.auth.img);
-  const login =
-    useSelector((state) => state.auth.login) || localStorage.getItem("login");
-
+  const login = useSelector((state) => state.auth.login);
   const navList = getNavlist(login);
 
   const [isOpened, setIsOpened] = useState(false);
@@ -43,7 +41,7 @@ export function Header() {
         </div>
         <nav onClick={handleNavClick} ref={navRef} className={s.navList}>
           {navList.map(({ value, path }) => (
-            <NavLink className={s.navItem} to={path}>
+            <NavLink key={path} className={s.navItem} to={path}>
               {value}
             </NavLink>
           ))}
