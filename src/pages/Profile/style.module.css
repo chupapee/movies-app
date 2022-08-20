@@ -38,6 +38,7 @@
   width: calc(100% - 300px);
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 20px 15px;
   gap: 10px;
 }
