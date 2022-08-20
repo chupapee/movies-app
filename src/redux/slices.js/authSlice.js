@@ -22,6 +22,7 @@ export const checkEmail = createAsyncThunk(
 const initialState = {
   login: '',
   email: '',
+  img: 'https://i.pinimg.com/originals/4e/cf/79/4ecf790f743f93ca68604083e44790e8.gif',
   isValid: true,
   checking: false,
   checked: false
@@ -33,6 +34,9 @@ export const authSlice = createSlice({
   reducers: {
     setLogin: (state, { payload }) => {
       state.login = payload.length > 0 ? payload : state.login
+    },
+    setImg: (state, action) => {
+      state.img = action.payload
     }
   },
   extraReducers: builder => {
@@ -54,4 +58,4 @@ export const authSlice = createSlice({
   }
 })
 
-export const { setLogin } = authSlice.actions
+export const { setLogin, setImg } = authSlice.actions

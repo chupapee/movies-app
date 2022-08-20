@@ -1,8 +1,8 @@
 import { HomePage } from "../../../pages/HomePage/HomePage"
 import { MovieDetails } from "../../../pages/MovieDetails/MovieDetails"
+import { Profile } from "../../../pages/Profile"
 import { Quiz } from "../../../pages/QuizPage/Quiz"
-import { Home } from '../../../pages/HomePage/home/index'
-import { CONTENT_DETAILS_ROUTE, CONTENT_ROUTE, HOME_ROUTE, LOGIN_ROUTE, QUIZ_ROUTE } from "./consts"
+import { CONTENT_DETAILS_ROUTE, CONTENT_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, QUIZ_ROUTE } from "./consts"
 
 export const publicRoutes = [
   {
@@ -25,7 +25,7 @@ export const privateRoutes = [
     Component: MovieDetails
   },
   {
-    path: HOME_ROUTE,
-    Component: Home
+    path: PROFILE_ROUTE,
+    Component: Profile
   }
 ]

@@ -1,10 +1,10 @@
-import { CONTENT_ROUTE, HOME_ROUTE, QUIZ_ROUTE } from "../../app/routing/utils/consts";
+import { CONTENT_ROUTE, PROFILE_ROUTE, QUIZ_ROUTE } from "../../app/routing/utils/consts";
 
 export function getNavlist(login) {
   const nav = [
     {value: 'MOVIES', path: CONTENT_ROUTE},
     {value: 'QUIZ', path: QUIZ_ROUTE},
-    {value: login, path: HOME_ROUTE},
+    {value: login, path: PROFILE_ROUTE},
   ]
   return nav
 }

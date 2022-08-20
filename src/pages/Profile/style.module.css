@@ -1,0 +1,39 @@
+.wrap {
+  margin: 0 auto;
+  width: 50%;
+  height: calc(100vh - 4em);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.imgWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-starts;
+  width: 100%;
+}
+
+.imgWrap img {
+  object-fit: cover;
+  border: solid 1px black;
+  margin: 5px 0;
+  width: 400px;
+  height: 500px;
+  border-radius: 30px;
+}
+
+.imgWrap input[type=file] {
+  color: transparent;
+}

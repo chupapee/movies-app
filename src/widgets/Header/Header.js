@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useState } from "react";
 
 export function Header() {
+  const profileIcon = useSelector((state) => state.auth.img);
   const login =
     useSelector((state) => state.auth.login) || localStorage.getItem("login");
 
@@ -24,23 +25,27 @@ export function Header() {
     }
   }
 
+  function handleNavClick() {
+    openNav();
+  }
+
   return (
     <div className={s.header}>
-      <img
-        className={s.headerIcon}
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
-        alt="imdbIcon"
-      />
-      <div onClick={openNav} className={s.burger}>
-        <MenuIcon />
+      <div className={s.headerIcon}>
+        <img src={profileIcon} alt="profile-icon" />
       </div>
-      <nav ref={navRef} className={s.navList}>
-        {navList.map(({ value, path }) => (
-          <NavLink className={s.navItem} to={path}>
-            {value}
-          </NavLink>
-        ))}
-      </nav>
+      <div>
+        <div onClick={openNav} className={s.burger}>
+          <MenuIcon />
+        </div>
+        <nav onClick={handleNavClick} ref={navRef} className={s.navList}>
+          {navList.map(({ value, path }) => (
+            <NavLink className={s.navItem} to={path}>
+              {value}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }
