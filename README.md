@@ -4,7 +4,13 @@ A ReactJS movies app to demonstrate redux toolkit use cases as a state managemen
 ## 🎥 Live demonstraion: [movies.app](https://comeall09.github.io/movies_app)
 
 <p align='center'>
-  <img src='https://i.ibb.co/y5JHWYV/image-2022-07-24-23-14-42.png'/>  
+  <img src='https://i.ibb.co/pyShXCQ/movies.png' alt='movies_page'/>  
+</p>
+<p align='center'>
+  <img src='https://i.ibb.co/tcS81Jk/quiz.png' alt='quiz_page'/>  
+</p>
+<p align='center'>
+  <img src='https://i.ibb.co/brzfq6T/profile.png' alt='profile_page'/>  
 </p>
 
 ## 💡 Features:  
