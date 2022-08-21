@@ -40,6 +40,15 @@
     object-fit: cover;
   }
 
+  .loginWrap {
+    width: fit-content;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    animation:
+    typing 4s steps(1000, end);
+  }
+
   .login {
     display: none;
     text-transform: uppercase;
@@ -115,4 +124,9 @@
   .showNav {
     transform: translateY(0%);
     transition: all ease-in .4s;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 60% }
   }

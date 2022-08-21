@@ -33,7 +33,9 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setLogin: (state, { payload }) => {
-      state.login = payload.length > 0 ? payload : state.login
+      const login = payload.length > 0 ? payload : state.login
+      state.login = login
+      localStorage.setItem('login', login)
     },
     setImg: (state, action) => {
       state.img = action.payload

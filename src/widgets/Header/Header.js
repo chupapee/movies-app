@@ -24,7 +24,7 @@ export function Header() {
     } else {
       navRef.current.className = s.navList;
     }
-  }, [isOpened])
+  }, [isOpened]);
 
   function handleNavClick() {
     openNav();
@@ -35,7 +35,9 @@ export function Header() {
       <div className={s.headerIcon}>
         <img src={profileIcon} alt="profile-icon" />
       </div>
-      <p className={s.login}>{login}</p>
+      <div className={s.loginWrap}>
+        <p className={s.login}>{login}</p>
+      </div>
       <div>
         <div onClick={openNav} className={s.burger}>
           <MenuIcon />
