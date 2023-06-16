@@ -1,11 +1,23 @@
-import axios from "axios"
+import axios, { AxiosError } from 'axios';
 
-const API_KEY = '57dca2bf0baa452f92a0eb2f163481e9'
+const API_KEY = process.env.EMAIL_API_KEY;
+const expiredKeyCode = 401;
 
 export const authApi = {
-  checkEmail(email){
-    return true
-    // return axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=${API_KEY}&email=${email}`)
-    // .then(response => response.data.deliverability === 'DELIVERABLE' ? true : false)
-  }
-}
+	async checkEmail(email) {
+		try {
+			const res = await axios.get(
+				`https://emailvalidation.abstractapi.com/v1/?api_key=${API_KEY}&email=${email}`
+			);
+			return res.data.deliverability === 'DELIVERABLE';
+		} catch (error) {
+			if (
+				error instanceof AxiosError &&
+				error.response.status === expiredKeyCode
+			) {
+				return true;
+			}
+			return false;
+		}
+	},
+};
