@@ -5,7 +5,6 @@
 	"plugins": [
 		"@babel/plugin-syntax-throw-expressions"
 	],
-	"homepage": "https://comeall09.github.io/movies-app",
 	"browserslist": {
 		"production": [
 			">0.2%",
@@ -19,12 +18,9 @@
 		]
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
 		"lint": "eslint \"./src/**/*.{js,jsx}\"",
 		"lint:fix": "eslint \"./src/**/*.{js,jsx}\" --fix"
 	},
@@ -34,23 +30,21 @@
 		"@mui/icons-material": "^5.6.2",
 		"@mui/material": "^5.6.4",
 		"@reduxjs/toolkit": "^1.8.1",
-		"@testing-library/jest-dom": "^5.16.4",
-		"@testing-library/react": "^13.1.1",
-		"@testing-library/user-event": "^13.5.0",
 		"axios": "^0.27.2",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-redux": "^8.0.1",
 		"react-router-dom": "^6.3.0",
-		"react-scripts": "5.0.1",
 		"swiper": "^8.3.2",
 		"web-vitals": "^2.1.4"
 	},
 	"devDependencies": {
 		"@babel/plugin-syntax-throw-expressions": "^7.16.7",
+		"@vitejs/plugin-react": "^4.0.0",
 		"eslint": "^8.42.0",
 		"eslint-kit": "^9.3.0",
-		"gh-pages": "^4.0.0",
-		"prettier": "^2.8.8"
+		"prettier": "^2.8.8",
+		"vite": "^4.3.9",
+		"vite-jsconfig-paths": "^2.0.1"
 	}
 }

@@ -1,37 +1,30 @@
-import { HomePage } from '../../../pages/HomePage/HomePage';
-import { MovieDetails } from '../../../pages/MovieDetails/MovieDetails';
-import { Profile } from '../../../pages/Profile';
-import { Quiz } from '../../../pages/QuizPage/Quiz';
-import {
-	CONTENT_DETAILS_ROUTE,
-	CONTENT_ROUTE,
-	LOGIN_ROUTE,
-	PROFILE_ROUTE,
-	QUIZ_ROUTE,
-} from './consts';
+import { HomePage } from '@pages/HomePage/HomePage';
+import { MovieDetails } from '@pages/MovieDetails/MovieDetails';
+import { Profile } from '@pages/Profile/index';
+import { Quiz } from '@pages/QuizPage/Quiz';
 
 export const publicRoutes = [
 	{
-		path: LOGIN_ROUTE,
+		path: '/*',
 		Component: HomePage,
 	},
 ];
 
 export const privateRoutes = [
 	{
-		path: CONTENT_ROUTE,
+		path: '/',
 		Component: HomePage,
 	},
 	{
-		path: QUIZ_ROUTE,
+		path: '/quiz',
 		Component: Quiz,
 	},
 	{
-		path: CONTENT_DETAILS_ROUTE,
+		path: '/details',
 		Component: MovieDetails,
 	},
 	{
-		path: PROFILE_ROUTE,
+		path: '/profile',
 		Component: Profile,
 	},
 ];

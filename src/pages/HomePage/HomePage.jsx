@@ -1,7 +1,7 @@
+import { Modal } from '@widgets/Modal/Modal';
+import { SearchForm } from '@widgets/SearchForm/SearchForm';
 import { useSelector } from 'react-redux/es/exports';
 
-import { Modal } from '../../widgets/Modal/Modal';
-import { SearchForm } from '../../widgets/SearchForm/SearchForm';
 import { Auth } from '../Auth/Auth';
 import { Movies } from '../Movies/Movies';
 import s from './homePage.module.css';

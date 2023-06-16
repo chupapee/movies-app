@@ -1,4 +1,5 @@
-import { MovieSlider } from '../../widgets/Movies/movieSlider';
+import { MovieSlider } from '@widgets/Movies/movieSlider';
+
 import s from './movies.module.css';
 
 export function Movies() {

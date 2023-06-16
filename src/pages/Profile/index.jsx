@@ -1,8 +1,8 @@
+import { BackBtn } from '@shared/buttons/components/BackBtn';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setImg, setLogin } from '../../redux/slices.js/authSlice';
-import { BackBtn } from '../../shared/buttons/components/BackBtn';
 import s from './style.module.css';
 
 export const Profile = () => {

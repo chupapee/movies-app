@@ -1,9 +1,9 @@
+import { BackBtn } from '@shared/buttons/components/BackBtn';
+import { Description } from '@widgets/MovieDetails/Description/index';
+import { Poster } from '@widgets/MovieDetails/Poster/index';
+import { Preloader } from '@widgets/Preloader/Preloader';
 import { useSelector } from 'react-redux';
 
-import { BackBtn } from '../../shared/buttons/components/BackBtn';
-import { Description } from '../../widgets/MovieDetails/Description/index';
-import { Poster } from '../../widgets/MovieDetails/Poster/index';
-import { Preloader } from '../../widgets/Preloader/Preloader';
 import s from './movieDetails.module.css';
 
 export function MovieDetails() {

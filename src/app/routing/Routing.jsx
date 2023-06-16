@@ -1,7 +1,7 @@
+import { Header } from '@widgets/Header/Header';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Header } from '../../widgets/Header/Header';
 import s from './routing.module.css';
 import { privateRoutes, publicRoutes } from './utils/routes';
 

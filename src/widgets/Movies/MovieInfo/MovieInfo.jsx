@@ -1,5 +1,4 @@
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import React from 'react';
 
 import s from './movieInfo.module.css';
 

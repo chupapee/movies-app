@@ -6,8 +6,8 @@ import {
 	nextQuiz,
 	setTotalGuessed,
 } from '../../redux/slices.js/quizSlice';
-import { BackBtn } from '../../shared/buttons/components/BackBtn';
-import { Preloader } from '../../widgets/Preloader/Preloader';
+import { BackBtn } from '@shared/buttons/components/BackBtn';
+import { Preloader } from '@widgets/Preloader/Preloader';
 import s from './quiz.module.css';
 
 export const Quiz = () => {
