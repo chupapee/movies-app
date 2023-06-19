@@ -1,24 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-import { authApi } from '../../service/authApi';
-
-export const checkEmail = createAsyncThunk(
-	'email/checkEmail',
-	async (data, { rejectWithValue }) => {
-		const [email, login] = data;
-		try {
-			const isValid = await authApi.checkEmail(email);
-			if (isValid) {
-				localStorage.setItem('email', email);
-				localStorage.setItem('login', login);
-				return [email, login];
-			}
-			throw new Error('invalid email');
-		} catch (error) {
-			return rejectWithValue(error);
-		}
-	}
-);
+import { emailApi } from '@shared/api';
 
 const initialState = {
 	login: localStorage.getItem('login'),
@@ -32,7 +13,7 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-	name: 'email',
+	name: 'auth',
 	initialState,
 	reducers: {
 		setLogin: (state, { payload }) => {
@@ -52,8 +33,7 @@ export const authSlice = createSlice({
 			})
 			.addCase(checkEmail.fulfilled, (state, { payload }) => {
 				state.isValid = true;
-				state.email = payload[0]; // email
-				state.login = payload[1]; // login
+				[state.email, state.login] = payload;
 				state.checked = true;
 				state.checking = false;
 			})
@@ -65,3 +45,24 @@ export const authSlice = createSlice({
 });
 
 export const { setLogin, setImg } = authSlice.actions;
+
+export const checkEmail = createAsyncThunk(
+	'email/checkEmail',
+	async (data, { rejectWithValue }) => {
+		const [email, login] = data;
+		try {
+			const res = await emailApi.validateEmail(email);
+			console.log(res);
+			// const expiredKeyCode = 401;
+			if (res.data.deliverability === 'DELIVERABLE') {
+				localStorage.setItem('email', email);
+				localStorage.setItem('login', login);
+				return [email, login];
+			}
+			throw new Error('invalid email');
+		} catch (error) {
+			console.log(error, 'error');
+			return rejectWithValue(error);
+		}
+	}
+);

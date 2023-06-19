@@ -1,0 +1,168 @@
+.wrapper {
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3em 5px;
+	gap: 15px;
+}
+
+.posterWrap {
+	position: relative;
+}
+
+.play {
+	cursor: pointer;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -15px;
+	margin-left: -25px;
+	height: 0;
+	width: 0;
+	border-left: 50px solid purple;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	transition: opacity 0.1s ease;
+}
+
+.posterWrap:hover .play {
+	opacity: 0.7;
+}
+
+.detailsPoster {
+	cursor: pointer;
+	flex: 50%;
+	width: 100%;
+	height: 615px;
+	object-fit: cover;
+}
+
+.frame {
+	width: 100%;
+	height: 615px;
+	flex: 40%;
+}
+
+@media screen and (max-width: 550px) {
+	.detailsPoster {
+		height: 500px;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.frame {
+		height: 500px;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.wrapper {
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 1020px) {
+	.wrapper {
+		padding: 5px 15px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.wrapper {
+		align-items: center;
+	}
+}
+
+.descrWrapper {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	height: auto;
+	padding: 15px;
+	font-family: consolas;
+	flex: 60%;
+}
+
+.preDetails {
+	border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.detailsTitle {
+	font-weight: normal;
+}
+
+.subInfo {
+	display: flex;
+	padding: 15px 0;
+	color: rgb(202, 202, 202);
+}
+
+.subInfo div {
+	padding: 0 20px;
+	border-right: rgb(147, 147, 147) solid 3px;
+}
+
+.subInfo div:first-child {
+	padding-left: 0;
+}
+
+.subInfo div:last-child {
+	border-right: 0;
+}
+
+.plot {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
+	margin-bottom: 15px;
+	font-size: 1.3em;
+	line-height: 2;
+}
+
+.moreDetails {
+	font-size: 1.2em;
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.error {
+	height: 60vh;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	font-size: 3em;
+}
+
+@media screen and (max-width: 1020px) {
+	.descrWrapper {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.plot {
+		font-size: 1em;
+		line-height: 1.5;
+	}
+	.descrWrapper {
+		padding: 5px;
+	}
+	.moreDetails {
+		font-size: 1em;
+		gap: 5px;
+	}
+	.subInfo div {
+		padding: 0 10px;
+	}
+}

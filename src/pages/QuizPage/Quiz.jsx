@@ -6,8 +6,8 @@ import {
 	nextQuiz,
 	setTotalGuessed,
 } from '../../redux/slices.js/quizSlice';
-import { BackBtn } from '@shared/buttons/components/BackBtn';
-import { Preloader } from '@widgets/Preloader/Preloader';
+import { GoBackButton } from '@shared/ui';
+import { Preloader } from '@shared/ui';
 import s from './quiz.module.css';
 
 export const Quiz = () => {
@@ -54,7 +54,7 @@ export const Quiz = () => {
 
 	return (
 		<>
-			<BackBtn />
+			<GoBackButton />
 			<div className={s.quizWrap}>
 				<div className={s.quizStatus}>
 					{!over && (

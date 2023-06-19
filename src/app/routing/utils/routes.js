@@ -1,6 +1,6 @@
 import { HomePage } from '@pages/HomePage/HomePage';
-import { MovieDetails } from '@pages/MovieDetails/MovieDetails';
-import { Profile } from '@pages/Profile/index';
+import { MovieDetails } from '@pages/movie-details';
+import { Profile } from '@pages/Profile';
 import { Quiz } from '@pages/QuizPage/Quiz';
 
 export const publicRoutes = [
@@ -20,7 +20,7 @@ export const privateRoutes = [
 		Component: Quiz,
 	},
 	{
-		path: '/details',
+		path: '/details/:movieId',
 		Component: MovieDetails,
 	},
 	{

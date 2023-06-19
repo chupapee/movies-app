@@ -1,21 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-import { quizApi } from '../../service/quizAPI';
-
-export const getQuizList = createAsyncThunk(
-	'quiz/getQuizList',
-	async (_, { rejectWithValue }) => {
-		try {
-			const list = await quizApi.fetchQuizList();
-			if (list) {
-				return list;
-			}
-			throw new Error('fetch error');
-		} catch (error) {
-			return rejectWithValue(error);
-		}
-	}
-);
+import { quizApi } from '@shared/api';
 
 const initialState = {
 	quizList: [],
@@ -56,3 +40,32 @@ export const quizSlice = createSlice({
 });
 
 export const { nextQuiz, setTotalGuessed } = quizSlice.actions;
+
+export const getQuizList = createAsyncThunk(
+	'quiz/getQuizList',
+	async (_, { rejectWithValue }) => {
+		try {
+			const res = await quizApi.fetchQuizList();
+			const questions = res.data.results;
+			const result = questions?.map(
+				({
+					category,
+					correct_answer,
+					difficulty,
+					incorrect_answers,
+					question,
+				}) => ({
+					question,
+					answer: correct_answer,
+					options: [...incorrect_answers, correct_answer],
+				})
+			);
+			if (result) {
+				return result;
+			}
+			throw new Error('fetch error');
+		} catch (error) {
+			return rejectWithValue(error);
+		}
+	}
+);

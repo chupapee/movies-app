@@ -1,8 +1,8 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { fetchMovies } from 'src/entities/movie/model/movie-model';
 
-import { fetchMovies } from '../../redux/slices.js/moviesSlice';
 import s from './searchForm.module.css';
 
 export function SearchForm() {
@@ -12,7 +12,7 @@ export function SearchForm() {
 
 	// fetching data
 	const setMovie = (movieTitle) => {
-		dispatch(fetchMovies(movieTitle));
+		dispatch(fetchMovies({ title: movieTitle }));
 	};
 
 	// movies default value

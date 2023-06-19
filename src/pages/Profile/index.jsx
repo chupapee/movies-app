@@ -1,4 +1,4 @@
-import { BackBtn } from '@shared/buttons/components/BackBtn';
+import { GoBackButton } from '@shared/ui';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -51,7 +51,7 @@ export const Profile = () => {
 	return (
 		<>
 			<div className={s.wrap}>
-				<BackBtn />
+				<GoBackButton />
 				<div className={s.profileWrap}>
 					<div className={s.contentWrap}>
 						<div className={s.imgWrap}>

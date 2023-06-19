@@ -6,7 +6,7 @@ import s from './routing.module.css';
 import { privateRoutes, publicRoutes } from './utils/routes';
 
 export function Routing() {
-	const loggedIn = useSelector((state) => state.auth.login);
+	const loggedIn = useSelector((state) => state.auth.isValid);
 
 	return (
 		<BrowserRouter>

@@ -3,11 +3,11 @@ import { SearchForm } from '@widgets/SearchForm/SearchForm';
 import { useSelector } from 'react-redux/es/exports';
 
 import { Auth } from '../Auth/Auth';
-import { Movies } from '../Movies/Movies';
+import { Movies } from '../movie-list';
 import s from './homePage.module.css';
 
 export function HomePage() {
-	const error = useSelector((state) => state.movies.error);
+	const error = useSelector((state) => state.movie.error);
 	const checked = useSelector((state) => state.auth.checked);
 
 	// params for closing modal window
@@ -21,11 +21,7 @@ export function HomePage() {
 			</Modal>
 			<div className={s.contentWrapper}>
 				<SearchForm />
-				{error.length > 0 ? (
-					<div className={s.error}>{error}</div>
-				) : (
-					<Movies />
-				)}
+				{error ? <div className={s.error}>{error}</div> : <Movies />}
 			</div>
 		</>
 	);
