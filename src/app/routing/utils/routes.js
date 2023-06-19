@@ -1,19 +1,19 @@
-import { HomePage } from '@pages/HomePage/HomePage';
 import { MovieDetails } from '@pages/movie-details';
+import { Movies } from '@pages/movie-list';
 import { Profile } from '@pages/Profile';
 import { Quiz } from '@pages/QuizPage/Quiz';
 
 export const publicRoutes = [
 	{
 		path: '/*',
-		Component: HomePage,
+		Component: Movies,
 	},
 ];
 
 export const privateRoutes = [
 	{
 		path: '/',
-		Component: HomePage,
+		Component: Movies,
 	},
 	{
 		path: '/quiz',

@@ -8,6 +8,8 @@
 		"paths": {
 			"@app/*": ["./src/app/*"],
 			"@pages/*": ["./src/pages/*"],
+			"@entities/*": ["./src/entities/*"],
+			"@features/*": ["./src/features/*"],
 			"@widgets/*": ["./src/widgets/*"],
 			"@shared/*": ["./src/shared/*"]
 		}

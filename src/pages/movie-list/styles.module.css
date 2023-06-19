@@ -1,0 +1,29 @@
+.container {
+	height: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding-top: 15px;
+}
+
+.searchWrap {
+	max-width: 350px;
+	width: 100%;
+
+	margin: 0 auto;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.error {
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 550px) {
+	.container {
+		padding: 0 30px;
+	}
+}
