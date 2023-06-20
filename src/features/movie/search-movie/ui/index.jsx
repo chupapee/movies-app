@@ -1,5 +1,5 @@
 import { SearchInput } from '@shared/ui';
-import { useSearchMovie } from '@entities/movie';
+import { useSearchMovie } from '../model/useSearchMovie';
 
 export const SearchMovie = ({ ...attrs }) => {
 	const { title, onChange, search } = useSearchMovie();

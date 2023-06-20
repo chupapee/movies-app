@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { MovieSlider } from '@entities/movie/ui';
-import { fetchMovies } from '@entities/movie/model';
+import { MovieSlider, fetchMovies } from '@entities/movie';
 import { SearchMovie } from '@features/movie/search-movie';
 import { Preloader } from '@shared/ui';
 import s from './styles.module.css';
@@ -17,7 +16,7 @@ export function Movies() {
 	const movies = useSelector((state) => state.movie.list);
 
 	useEffect(() => {
-		dispatch(fetchMovies({ title: DEFAULT_TITLE }));
+		if (!movies.length) dispatch(fetchMovies({ title: DEFAULT_TITLE }));
 	}, []);
 
 	if (error) return <p className={s.error}>{error}</p>;

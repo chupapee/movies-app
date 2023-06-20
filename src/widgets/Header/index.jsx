@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import s from './header.module.css';
+import s from './styles.module.css';
 import { getNavlist } from './nav';
 
 export function Header() {
-	const profileIcon = useSelector((state) => state.auth.img);
-	const login = useSelector((state) => state.auth.login);
-	const navList = getNavlist(login);
+	const avatar = useSelector((state) => state.session.avatar);
+	const username = useSelector((state) => state.session.username);
+	const navList = getNavlist(username);
 
 	const [isOpened, setIsOpened] = useState(false);
 	const navRef = useRef(null);
@@ -28,10 +28,10 @@ export function Header() {
 	return (
 		<div className={s.header}>
 			<div className={s.headerIcon}>
-				<img src={profileIcon} alt="profile-icon" />
+				<img src={avatar} alt="profile-icon" />
 			</div>
 			<div className={s.loginWrap}>
-				<p className={s.login}>{login}</p>
+				<p className={s.login}>{username}</p>
 			</div>
 			<div>
 				<div className={s.burger}>

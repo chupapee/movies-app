@@ -1,20 +1,5 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { omdbApi } from '@shared/api';
-
-export const useSearchMovie = () => {
-	const [title, setTitle] = useState('');
-	const dispatch = useDispatch();
-
-	const onChange = (value) => setTitle(value);
-
-	const search = () => {
-		dispatch(fetchMovies({ title }));
-	};
-	return { title, onChange, search };
-};
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchDetails, fetchMovies } from '../api/movieApi';
 
 const initialState = {
 	list: [],
@@ -58,31 +43,3 @@ export const movieSlice = createSlice({
 			});
 	},
 });
-
-export const fetchMovies = createAsyncThunk(
-	'movies/fetchMovies',
-	async ({ title = '', page = 1 }, { rejectWithValue }) => {
-		try {
-			const res = await omdbApi.findMovies({ title, page });
-			if (res.data.Response === 'True') {
-				const secondRes = await omdbApi.findMovies({
-					title,
-					page: 2,
-				});
-				if (secondRes.data.Response === 'True')
-					return [...res.data.Search, ...secondRes.data.Search];
-			}
-			throw res.data.Error;
-		} catch (error) {
-			return rejectWithValue(error);
-		}
-	}
-);
-
-export const fetchDetails = createAsyncThunk(
-	'movies/fetchDetails',
-	async ({ id }) => {
-		const res = await omdbApi.fetchDetails({ id });
-		return res.data;
-	}
-);

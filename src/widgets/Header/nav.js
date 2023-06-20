@@ -4,11 +4,11 @@ import {
 	QUIZ_ROUTE,
 } from '../../app/routing/utils/consts';
 
-export function getNavlist(login) {
+export function getNavlist(username) {
 	const nav = [
 		{ value: 'MOVIES', path: CONTENT_ROUTE },
 		{ value: 'QUIZ', path: QUIZ_ROUTE },
-		{ value: login, path: PROFILE_ROUTE },
+		{ value: username, path: PROFILE_ROUTE },
 	];
 	return nav;
 }

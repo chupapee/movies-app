@@ -1,4 +1,4 @@
-import s from './modal.module.css';
+import s from './styles.module.css';
 
 export const Modal = ({ children, finished }) => {
 	// finished is for closing a modal window

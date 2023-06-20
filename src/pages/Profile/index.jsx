@@ -1,34 +1,34 @@
+import { update } from '@entities/session';
 import { GoBackButton } from '@shared/ui';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setImg, setLogin } from '../../redux/slices.js/authSlice';
 import s from './style.module.css';
 
 export const Profile = () => {
-	const login = useSelector((state) => state.auth.login);
 	const dispatch = useDispatch();
-	const loginRef = useRef(null);
-	const defaultImg = useSelector((state) => state.auth.img);
+	const usernameRef = useRef(null);
+
+	const username = useSelector((state) => state.session.username);
+	const avatar = useSelector((state) => state.session.avatar);
 
 	const [disabled, setDisabled] = useState(true);
-	function handleChanging() {
-		setDisabled(!disabled);
+	function handleChange() {
+		setDisabled((prev) => !prev);
 	}
 
 	useEffect(() => {
-		loginRef.current.focus();
+		if (!disabled) usernameRef.current.focus();
 	}, [disabled]);
 
-	function handleSaving() {
-		dispatch(setLogin(loginValue));
+	function handleSubmit() {
 		setDisabled(true);
-		dispatch(setImg(image));
+		dispatch(update({ username: usernameVal, avatar: image }));
 	}
 
-	const [loginValue, setLoginValue] = useState(login);
-	function changeLogin(value) {
-		setLoginValue(value);
+	const [usernameVal, setUsernameVal] = useState(username);
+	function changeUsername(value) {
+		setUsernameVal(value);
 	}
 
 	function handleKeyDown(e) {
@@ -37,8 +37,7 @@ export const Profile = () => {
 		}
 	}
 
-	const [image, setImage] = useState(defaultImg);
-
+	const [image, setImage] = useState(avatar);
 	function handleFileChange(e) {
 		const file = e.target.files[0];
 		const reader = new FileReader();
@@ -68,18 +67,18 @@ export const Profile = () => {
 						</div>
 						<div className={s.loginForm}>
 							<label className={s.loginInp}>
-								Login
+								Username
 								<input
 									className={s.loginInp}
 									id="loginInp"
 									onKeyDown={handleKeyDown}
-									ref={loginRef}
+									ref={usernameRef}
 									required
 									onChange={(e) =>
-										changeLogin(e.target.value)
+										changeUsername(e.target.value)
 									}
 									type="text"
-									value={loginValue}
+									value={usernameVal}
 									disabled={disabled}
 									maxLength="20"
 									minLength="1"
@@ -89,13 +88,14 @@ export const Profile = () => {
 							<div className={s.btnsWrap}>
 								<button
 									className={s.btn}
-									onClick={handleChanging}
+									onClick={handleChange}
 								>
 									Edit
 								</button>
 								<button
+									type="submit"
 									className={s.btn}
-									onClick={handleSaving}
+									onClick={handleSubmit}
 								>
 									save changes
 								</button>

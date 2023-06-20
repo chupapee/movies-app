@@ -1,10 +1,10 @@
-import { GoBackButton } from '@shared/ui';
-import { Preloader } from '@shared/ui';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchDetails } from 'src/entities/movie';
-import { MovieCard } from 'src/entities/movie/ui';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Preloader } from '@shared/ui';
+import { fetchDetails } from '@entities/movie/model';
+import { MovieCard } from '@entities/movie';
 
 export function MovieDetails() {
 	const dispatch = useDispatch();
@@ -18,10 +18,7 @@ export function MovieDetails() {
 		dispatch(fetchDetails({ id: movieId }));
 	}, []);
 
-	return (
-		<>
-			<GoBackButton />
-			{!movie && isLoading ? <Preloader /> : <MovieCard movie={movie} />}
-		</>
-	);
+	if (isLoading) return <Preloader />;
+
+	return <MovieCard movie={movie} />;
 }
