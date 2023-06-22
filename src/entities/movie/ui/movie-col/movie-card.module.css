@@ -73,16 +73,12 @@
 
 .info > div {
 	background-color: black;
+	font-style: italic;
+	color: white;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 8px;
 	flex: 1;
-
-	color: white;
-}
-
-.info > div > span {
-	font-style: italic;
 }

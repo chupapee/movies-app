@@ -2,21 +2,6 @@
 	"name": "movies-app",
 	"version": "0.1.0",
 	"private": true,
-	"plugins": [
-		"@babel/plugin-syntax-throw-expressions"
-	],
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -25,22 +10,17 @@
 		"lint:fix": "eslint \"./src/**/*.{js,jsx}\" --fix"
 	},
 	"dependencies": {
-		"@emotion/react": "^11.9.0",
-		"@emotion/styled": "^11.8.1",
-		"@mui/icons-material": "^5.6.2",
-		"@mui/material": "^5.6.4",
-		"@reduxjs/toolkit": "^1.8.1",
-		"axios": "^0.27.2",
-		"keen-slider": "^6.8.5",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-redux": "^8.0.1",
 		"react-router-dom": "^6.3.0",
+		"@reduxjs/toolkit": "^1.8.1",
+		"axios": "^0.27.2",
+		"keen-slider": "^6.8.5",
 		"swiper": "^8.3.2",
 		"web-vitals": "^2.1.4"
 	},
 	"devDependencies": {
-		"@babel/plugin-syntax-throw-expressions": "^7.16.7",
 		"@vitejs/plugin-react": "^4.0.0",
 		"eslint": "^8.42.0",
 		"eslint-kit": "^9.3.0",

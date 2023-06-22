@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import MenuIcon from '@mui/icons-material/Menu';
 import { useNavList } from '@shared/helpers/useNavList';
 
 import s from './styles.module.css';
@@ -21,9 +20,14 @@ export function Header() {
 				<p className={s.login}>{username}</p>
 			</div>
 			<div>
-				<div className={s.burger}>
-					<MenuIcon onClick={toggleBurger} />
-				</div>
+				<button onClick={toggleBurger} className={s.burger}>
+					<img
+						src="assets/burger-menu-icon.svg"
+						width={25}
+						height={25}
+						alt="navigation menu button"
+					/>
+				</button>
 				<nav ref={burgerRef} className={s.navList}>
 					{navList.map(({ value, path }) => (
 						<NavLink

@@ -1,7 +1,5 @@
 import { NavLink } from 'react-router-dom';
 
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
 import s from './movie-card.module.css';
 
 export const MovieCol = ({ movie, className }) => {
@@ -18,7 +16,12 @@ export const MovieCol = ({ movie, className }) => {
 			<div className={s.info}>
 				<p>{Title}</p>
 				<div>
-					<CalendarMonthIcon fontSize="small" />
+					<img
+						src="assets/calendar-icon.svg"
+						width={18}
+						height={18}
+						alt="movie release date"
+					/>
 					<span>{Year}</span>
 				</div>
 			</div>

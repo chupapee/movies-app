@@ -1,5 +1,3 @@
-import SearchIcon from '@mui/icons-material/Search';
-
 import s from './styles.module.css';
 
 export const SearchInput = ({
@@ -19,7 +17,12 @@ export const SearchInput = ({
 			{disabled ? null : (
 				<button className={s.iconBtn} onClick={onSearch}>
 					<div className={s.iconWrap}>
-						<SearchIcon className={s.icon} />
+						<img
+							src="assets/search-icon.svg"
+							width={20}
+							height={20}
+							alt="movie release date"
+						/>
 					</div>
 				</button>
 			)}

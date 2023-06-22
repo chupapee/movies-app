@@ -20,6 +20,10 @@ export const sliderOptions = {
 		delay: 2500,
 		disableOnInteraction: true,
 	},
+	style: {
+		// padding for pagination bullets visibility
+		paddingBottom: '40px',
+	},
 	loop: true,
 	slidesPerGroup: 2,
 	slidesPerView: 4,
