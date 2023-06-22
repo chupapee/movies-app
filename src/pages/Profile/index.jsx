@@ -1,7 +1,7 @@
-import { update } from '@entities/session';
-import { GoBackButton } from '@shared/ui';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { update } from '@entities/session';
 
 import s from './style.module.css';
 
@@ -13,44 +13,43 @@ export const Profile = () => {
 	const avatar = useSelector((state) => state.session.avatar);
 
 	const [disabled, setDisabled] = useState(true);
-	function handleChange() {
+	const handleChange = () => {
 		setDisabled((prev) => !prev);
-	}
+	};
 
 	useEffect(() => {
 		if (!disabled) usernameRef.current.focus();
 	}, [disabled]);
 
-	function handleSubmit() {
+	const handleSubmit = () => {
 		setDisabled(true);
 		dispatch(update({ username: usernameVal, avatar: image }));
-	}
+	};
 
 	const [usernameVal, setUsernameVal] = useState(username);
-	function changeUsername(value) {
+	const changeUsername = (value) => {
 		setUsernameVal(value);
-	}
+	};
 
-	function handleKeyDown(e) {
+	const handleKeyDown = (e) => {
 		if (e.code === 'Enter') {
 			setDisabled(true);
 		}
-	}
+	};
 
 	const [image, setImage] = useState(avatar);
-	function handleFileChange(e) {
+	const handleFileChange = (e) => {
 		const file = e.target.files[0];
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
 		reader.addEventListener('load', () => {
 			setImage(reader.result);
 		});
-	}
+	};
 
 	return (
 		<>
 			<div className={s.wrap}>
-				<GoBackButton />
 				<div className={s.profileWrap}>
 					<div className={s.contentWrap}>
 						<div className={s.imgWrap}>

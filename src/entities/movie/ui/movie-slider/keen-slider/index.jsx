@@ -1,11 +1,11 @@
 import { Preloader } from '@shared/ui';
-import 'keen-slider/keen-slider.min.css';
-
 import { useKeenSlider } from 'keen-slider/react';
-import { MovieCol } from '../movie-col/index';
-import { sliderOptions } from './helpers';
 
+import { MovieCol } from '../movie-col';
+import { sliderOptions } from './helpers';
 import s from './movie-slider.module.css';
+
+import 'keen-slider/keen-slider.min.css';
 
 const MovieSlider = ({ movies, isLoading }) => {
 	const [sliderRef] = useKeenSlider(sliderOptions);

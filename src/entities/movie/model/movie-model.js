@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { fetchDetails, fetchMovies } from '../api/movieApi';
 
 const initialState = {

@@ -1,5 +1,6 @@
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { NavLink } from 'react-router-dom';
+
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import s from './movie-card.module.css';
 
@@ -9,7 +10,7 @@ export const MovieCol = ({ movie, className }) => {
 	return (
 		<NavLink
 			className={`${s.wrapper} ${className}`}
-			to={`/details/${imdbID}`}
+			to={`/movies/${imdbID}`}
 		>
 			<div className={s.posterWrapper}>
 				<img className={s.poster} src={Poster} alt="poster" />

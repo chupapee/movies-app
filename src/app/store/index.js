@@ -1,8 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { movieSlice } from '@entities/movie';
+import { quizSlice } from '@entities/quiz';
 import { sessionModel } from '@entities/session';
-
-import { quizSlice } from './slices.js/quizSlice';
+import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
 	reducer: {

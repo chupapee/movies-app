@@ -2,15 +2,19 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
 		"strict": true,
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": ["DOM", "DOM.Iterable", "esnext"],
 		"baseUrl": ".",
 		"paths": {
 			"@app/*": ["./src/app/*"],
 			"@pages/*": ["./src/pages/*"],
-			"@entities/*": ["./src/entities/*"],
-			"@features/*": ["./src/features/*"],
 			"@widgets/*": ["./src/widgets/*"],
+			"@features/*": ["./src/features/*"],
+			"@entities/*": ["./src/entities/*"],
 			"@shared/*": ["./src/shared/*"]
 		}
 	},

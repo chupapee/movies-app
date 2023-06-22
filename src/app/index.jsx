@@ -1,18 +1,22 @@
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import { Login } from '@features/auth/login/ui';
 import { MovieDetails } from '@pages/movie-details';
 import { Movies } from '@pages/movie-list';
 import { Profile } from '@pages/Profile';
-import { Quiz } from '@pages/QuizPage/Quiz';
-
-import { Login } from '@features/auth/login/ui';
-import { Header } from '@widgets/header';
+import { Quiz } from '@pages/quiz/index';
+import { useNavList } from '@shared/helpers/useNavList';
 import { Modal } from '@shared/ui';
+import { Header } from '@widgets/header';
+
 import s from './styles.module.css';
 
 export const App = () => {
 	const isAuthorized = useSelector((state) => state.session.isAuthorized);
+	const {
+		routes: { MOVIES_ROUT, PROFILE_ROUT, QUIZ_ROUT },
+	} = useNavList();
 
 	if (!isAuthorized)
 		return (
@@ -26,13 +30,14 @@ export const App = () => {
 			<Header />
 			<div className={s.mainWrap}>
 				<Routes>
-					<Route path="/*" element={<Movies />} />
+					<Route path="/*" element={<Navigate to={MOVIES_ROUT} />} />
+					<Route path={MOVIES_ROUT} element={<Movies />} />
 					<Route
-						path="/details/:movieId"
+						path={`${MOVIES_ROUT}/:movieId`}
 						element={<MovieDetails />}
 					/>
-					<Route path="/quiz" element={<Quiz />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path={QUIZ_ROUT} element={<Quiz />} />
+					<Route path={PROFILE_ROUT} element={<Profile />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

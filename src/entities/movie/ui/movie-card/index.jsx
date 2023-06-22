@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { rickRollUrl } from './helpers';
 import s from './movie-col.module.css';
 
@@ -24,13 +25,13 @@ export const MovieCard = ({ movie }) => {
 					/>
 				</div>
 			) : (
-				<div onClick={playRickRoll} className={s.posterWrap}>
+				<div className={s.posterWrap}>
 					<img
 						className={s.detailsPoster}
 						src={movie.Poster}
 						alt="movie poster"
 					/>
-					<span className={s.play} />
+					<button className={s.play} onClick={playRickRoll} />
 				</div>
 			)}
 			<Description {...movie} />
@@ -38,19 +39,21 @@ export const MovieCard = ({ movie }) => {
 	);
 };
 
-const Description = ({
-	Title,
-	Year,
-	Rated,
-	DVD,
-	Runtime,
-	Plot,
-	Genre,
-	Director,
-	Actors,
-	Country,
-	Awards,
-}) => {
+const Description = (props) => {
+	const {
+		Title,
+		Year,
+		Rated,
+		DVD,
+		Runtime,
+		Plot,
+		Genre,
+		Director,
+		Actors,
+		Country,
+		Awards,
+	} = props;
+
 	return (
 		<>
 			{Title ? (

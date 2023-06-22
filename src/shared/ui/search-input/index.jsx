@@ -1,4 +1,5 @@
 import SearchIcon from '@mui/icons-material/Search';
+
 import s from './styles.module.css';
 
 export const SearchInput = ({
@@ -8,11 +9,9 @@ export const SearchInput = ({
 	...attrs
 }) => {
 	return (
-		<div
-			className={s.wrapper}
-			onKeyDown={(e) => e.code === 'Enter' && onSearch()}
-		>
+		<div className={s.wrapper}>
 			<input
+				onKeyDown={(e) => e.code === 'Enter' && onSearch()}
 				disabled={disabled}
 				{...attrs}
 				className={`${s.input} ${className}`}

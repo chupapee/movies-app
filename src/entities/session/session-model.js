@@ -56,7 +56,7 @@ export const { login, update, reset } = sessionModel.actions;
 
 export const checkEmail = createAsyncThunk(
 	'email/checkEmail',
-	async ({ username, email, password }, { rejectWithValue }) => {
+	async ({ username, email, password }) => {
 		await new Promise((ok) => setTimeout(ok, 1000));
 		return { username, email, password };
 		// try {

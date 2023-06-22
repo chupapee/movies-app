@@ -1,47 +1,34 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+import MenuIcon from '@mui/icons-material/Menu';
+import { useNavList } from '@shared/helpers/useNavList';
+
 import s from './styles.module.css';
-import { getNavlist } from './nav';
+import { useMobileBurger } from './useMobileBurger';
 
 export function Header() {
-	const avatar = useSelector((state) => state.session.avatar);
-	const username = useSelector((state) => state.session.username);
-	const navList = getNavlist(username);
-
-	const [isOpened, setIsOpened] = useState(false);
-	const navRef = useRef(null);
-	function openNav() {
-		setIsOpened(!isOpened);
-	}
-
-	useEffect(() => {
-		if (isOpened) {
-			navRef.current.className = `${s.navList} ${s.showNav}`;
-		} else {
-			navRef.current.className = s.navList;
-		}
-	}, [isOpened]);
+	const { avatar, username } = useSelector((state) => state.session);
+	const { burgerRef, toggleBurger } = useMobileBurger();
+	const { navList } = useNavList();
 
 	return (
 		<div className={s.header}>
 			<div className={s.headerIcon}>
-				<img src={avatar} alt="profile-icon" />
+				<img src={avatar} alt="avatar" />
 			</div>
 			<div className={s.loginWrap}>
 				<p className={s.login}>{username}</p>
 			</div>
 			<div>
 				<div className={s.burger}>
-					<MenuIcon onClick={openNav} />
+					<MenuIcon onClick={toggleBurger} />
 				</div>
-				<nav ref={navRef} className={s.navList}>
+				<nav ref={burgerRef} className={s.navList}>
 					{navList.map(({ value, path }) => (
 						<NavLink
-							onClick={openNav}
 							key={path}
+							onClick={toggleBurger}
 							className={s.navItem}
 							to={path}
 						>

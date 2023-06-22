@@ -1,4 +1,4 @@
-import { Autoplay, Mousewheel, Pagination, Navigation } from 'swiper';
+import { Autoplay, Mousewheel, Navigation, Pagination } from 'swiper';
 
 const getDirection = () => {
 	const windowWidth = window.innerWidth;

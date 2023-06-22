@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
+import { fetchDetails, MovieCard } from '@entities/movie';
 import { Preloader } from '@shared/ui';
-import { fetchDetails } from '@entities/movie/model';
-import { MovieCard } from '@entities/movie';
 
 export function MovieDetails() {
 	const dispatch = useDispatch();

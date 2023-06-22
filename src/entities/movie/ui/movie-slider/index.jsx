@@ -1,13 +1,12 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { MovieCol } from '../movie-col/index';
+import { sliderOptions } from './helpers';
+import s from './movie-slider.module.css';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import { Preloader } from '@shared/ui';
-
-import s from './movie-slider.module.css';
-import { MovieCol } from '../movie-col/index';
-import { sliderOptions } from './helpers';
 
 export const MovieSlider = ({ movies }) => {
 	return (
