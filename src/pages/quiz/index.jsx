@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchQuiz } from '@entities/quiz';
-import { PlayQuiz } from '@features/quiz/play-quiz/ui';
+import { quizApi } from '@entities/quiz';
+import { PlayQuiz } from '@features/quiz/play-quiz';
 
 export const Quiz = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(fetchQuiz());
+		dispatch(quizApi.fetchQuiz());
 	}, []);
 
 	return <PlayQuiz />;

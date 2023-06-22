@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { fetchDetails, MovieCard } from '@entities/movie';
+import { Movie, movieApi } from '@entities/movie';
 import { Preloader } from '@shared/ui';
 
 export function MovieDetails() {
@@ -14,10 +14,10 @@ export function MovieDetails() {
 	const { movieId } = useParams();
 
 	useEffect(() => {
-		dispatch(fetchDetails({ id: movieId }));
+		dispatch(movieApi.fetchDetails({ id: movieId }));
 	}, []);
 
 	if (isLoading) return <Preloader />;
 
-	return <MovieCard movie={movie} />;
+	return <Movie.MovieCard movie={movie} />;
 }

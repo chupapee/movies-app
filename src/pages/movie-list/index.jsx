@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchMovies, MovieSlider } from '@entities/movie';
+import { Movie, movieApi } from '@entities/movie';
 import { SearchMovie } from '@features/movie/search-movie';
 import { Preloader } from '@shared/ui';
 
@@ -18,7 +18,7 @@ export function Movies() {
 
 	useEffect(() => {
 		if (movies.length === 0)
-			dispatch(fetchMovies({ title: DEFAULT_TITLE }));
+			dispatch(movieApi.fetchMovies({ title: DEFAULT_TITLE }));
 	}, []);
 
 	if (error) return <p className={s.error}>{error}</p>;
@@ -28,7 +28,7 @@ export function Movies() {
 			<div className={s.searchWrap}>
 				<SearchMovie disabled={isLoading} />
 			</div>
-			{isLoading ? <Preloader /> : <MovieSlider movies={movies} />}
+			{isLoading ? <Preloader /> : <Movie.MovieSlider movies={movies} />}
 		</div>
 	);
 }

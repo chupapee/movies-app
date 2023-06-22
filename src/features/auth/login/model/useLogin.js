@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { checkEmail } from '@entities/session';
+import { sessionModel } from '@entities/session';
 
 const emailRegex = (email = '') => /^\S+@\S+\.\S+$/.test(email);
 
@@ -15,7 +15,7 @@ export const useLogin = () => {
 			setEmailError(true);
 			return;
 		}
-		dispatch(checkEmail(fields));
+		dispatch(sessionModel.checkEmail(fields));
 	};
 
 	const onFormChange = () => setEmailError(false);

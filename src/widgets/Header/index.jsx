@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { useNavList } from '@shared/helpers/useNavList';
+import { useNavList } from '@shared/helpers';
 
 import s from './styles.module.css';
 import { useMobileBurger } from './useMobileBurger';

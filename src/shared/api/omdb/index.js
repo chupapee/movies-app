@@ -1,1 +1,1 @@
-export * from './movies';
+export { fetchDetails, findMovies } from './movies';

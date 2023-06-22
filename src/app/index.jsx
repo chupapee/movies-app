@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import { Login } from '@features/auth/login/ui';
+import { Login } from '@features/auth';
 import { MovieDetails } from '@pages/movie-details';
 import { Movies } from '@pages/movie-list';
-import { Profile } from '@pages/Profile';
-import { Quiz } from '@pages/quiz/index';
-import { useNavList } from '@shared/helpers/useNavList';
+import { Profile } from '@pages/profile';
+import { Quiz } from '@pages/quiz';
+import { useNavList } from '@shared/helpers';
 import { Modal } from '@shared/ui';
 import { Header } from '@widgets/header';
 

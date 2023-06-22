@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { fetchMovies } from '@entities/movie';
+import { movieApi } from '@entities/movie';
 
 export const useSearchMovie = () => {
 	const [title, setTitle] = useState('');
@@ -10,7 +10,7 @@ export const useSearchMovie = () => {
 	const onChange = (value) => setTitle(value);
 
 	const search = () => {
-		dispatch(fetchMovies({ title }));
+		dispatch(movieApi.fetchMovies({ title }));
 	};
 	return { title, onChange, search };
 };

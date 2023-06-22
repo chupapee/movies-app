@@ -1,1 +1,1 @@
-export * from './quiz';
+export { fetchQuizList } from './quiz';
