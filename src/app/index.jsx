@@ -1,16 +1,18 @@
+import { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Login } from '@features/auth';
-import { MovieDetails } from '@pages/movie-details';
 import { Movies } from '@pages/movie-list';
-import { Profile } from '@pages/profile';
-import { Quiz } from '@pages/quiz';
 import { useNavList } from '@shared/helpers';
-import { Modal } from '@shared/ui';
+import { Modal, Preloader } from '@shared/ui';
 import { Header } from '@widgets/header';
 
 import s from './styles.module.css';
+
+const MovieDetails = lazy(() => import('@pages/movie-details'));
+const Profile = lazy(() => import('@pages/profile'));
+const Quiz = lazy(() => import('@pages/quiz'));
 
 export const App = () => {
 	const isAuthorized = useSelector((state) => state.session.isAuthorized);
@@ -34,10 +36,28 @@ export const App = () => {
 					<Route path={MOVIES_ROUT} element={<Movies />} />
 					<Route
 						path={`${MOVIES_ROUT}/:movieId`}
-						element={<MovieDetails />}
+						element={
+							<Suspense fallback={<Preloader />}>
+								<MovieDetails />
+							</Suspense>
+						}
 					/>
-					<Route path={QUIZ_ROUT} element={<Quiz />} />
-					<Route path={PROFILE_ROUT} element={<Profile />} />
+					<Route
+						path={QUIZ_ROUT}
+						element={
+							<Suspense fallback={<Preloader />}>
+								<Quiz />
+							</Suspense>
+						}
+					/>
+					<Route
+						path={PROFILE_ROUT}
+						element={
+							<Suspense fallback={<Preloader />}>
+								<Profile />
+							</Suspense>
+						}
+					/>
 				</Routes>
 			</div>
 		</BrowserRouter>

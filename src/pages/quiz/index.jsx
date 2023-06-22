@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { quizApi } from '@entities/quiz';
 import { PlayQuiz } from '@features/quiz/play-quiz';
 
-export const Quiz = () => {
+const Quiz = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -13,3 +13,5 @@ export const Quiz = () => {
 
 	return <PlayQuiz />;
 };
+
+export default Quiz;

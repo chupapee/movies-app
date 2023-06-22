@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Movie, movieApi } from '@entities/movie';
 import { Preloader } from '@shared/ui';
 
-export function MovieDetails() {
+const MovieDetails = () => {
 	const dispatch = useDispatch();
 
 	const movie = useSelector((state) => state.movie.movieDetails);
@@ -20,4 +20,6 @@ export function MovieDetails() {
 	if (isLoading) return <Preloader />;
 
 	return <Movie.MovieCard movie={movie} />;
-}
+};
+
+export default MovieDetails;
