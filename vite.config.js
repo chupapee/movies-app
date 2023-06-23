@@ -1,11 +1,21 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import jsconfigPaths from 'vite-jsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), jsconfigPaths()],
+	base: '/movies-app/',
+	plugins: [react()],
 	server: {
 		port: 3000,
+	},
+	resolve: {
+		alias: {
+			'@app': '/src/app',
+			'@pages': '/src/pages',
+			'@widgets': '/src/widgets',
+			'@features': '/src/features',
+			'@entities': '/src/entities',
+			'@shared': '/src/shared',
+		},
 	},
 });

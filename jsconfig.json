@@ -8,15 +8,15 @@
 		"jsx": "react-jsx",
 		"strict": true,
 		"lib": ["DOM", "DOM.Iterable", "esnext"],
-		"baseUrl": ".",
+		"baseUrl": "src",
 		"paths": {
-			"@app/*": ["./src/app/*"],
-			"@pages/*": ["./src/pages/*"],
-			"@widgets/*": ["./src/widgets/*"],
-			"@features/*": ["./src/features/*"],
-			"@entities/*": ["./src/entities/*"],
-			"@shared/*": ["./src/shared/*"]
+			"@app/*": ["app/*"],
+			"@pages/*": ["pages/*"],
+			"@widgets/*": ["widgets/*"],
+			"@features/*": ["features/*"],
+			"@entities/*": ["entities/*"],
+			"@shared/*": ["shared/*"]
 		}
 	},
-	"include": ["."]
+	"include": ["src"]
 }
