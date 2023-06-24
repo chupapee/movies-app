@@ -17,7 +17,7 @@ export const fetchQuiz = createAsyncThunk(
 				}) => ({
 					question,
 					answer: correct_answer,
-					options: [...incorrect_answers, correct_answer],
+					options: [...incorrect_answers, correct_answer].sort(), // sort to shuffle options
 				})
 			);
 			if (result) {

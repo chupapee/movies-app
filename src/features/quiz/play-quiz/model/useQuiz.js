@@ -44,5 +44,6 @@ export const useQuiz = () => {
 		win,
 		totalGuessed,
 		attempts,
+		MAX_QUESTIONS: quizList.length,
 	};
 };

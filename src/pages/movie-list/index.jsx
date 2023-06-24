@@ -21,13 +21,12 @@ export function Movies() {
 			dispatch(movieApi.fetchMovies({ title: DEFAULT_TITLE }));
 	}, []);
 
-	if (error) return <p className={s.error}>{error}</p>;
-
 	return (
 		<div className={s.container}>
 			<div className={s.searchWrap}>
 				<SearchMovie disabled={isLoading} />
 			</div>
+			{error && <p className={s.error}>{error}</p>}
 			{isLoading ? <Preloader /> : <Movie.MovieSlider movies={movies} />}
 		</div>
 	);
